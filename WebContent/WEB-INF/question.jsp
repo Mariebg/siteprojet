@@ -7,8 +7,6 @@
 <title>Questionnaire</title>
 </head>
 <body>
-	<%@include file="menu.jsp"%>
-
 	<!-- menu au lieu de coder html sur chaque page, il est possible de le placer ds un jsp et de l'importer(include)  -->
 	<%@include file="menuAd.jsp"%>
 

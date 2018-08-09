@@ -51,6 +51,7 @@ public class ReponseController extends HttpServlet{
 			};
 		}
 		boolean parcours=db.insererParcours(idUser,idQuizz,score); 
+		if(parcours) { System.out.println("parcours ajoute");}
 		System.out.println("affichage du score "+score);
 		String phraseResultat= "Vous avez eu "+score+" bonne(s) reponse(s) sur "+nbQuestion+" question(s) posee(s)";
 		request.setAttribute("erreur",erreur);

@@ -31,18 +31,19 @@ public class ParcoursController extends HttpServlet {
 		if (listCompetence != null) {
 			System.out.println("passage ici competence comtroller");
 			if (request.getParameter("choix")!=null) {
-			if(request.getParameter("choix").equals("-")){
-				//si l'utilisateur a saisi quelque chose dans le input text
-				erreur="Vous devez faire un choix parmis les competences proposees";
-				System.out.println("choix pas ok ");
+				if(request.getParameter("choix").equals("-")){
+					//si l'utilisateur a saisi quelque chose dans le input text
+					erreur="Vous devez faire un choix parmis les competences proposees";
+					System.out.println("choix pas ok ");
+				}
+				else {
+					//Si non c'est qu'il a choisit une valeur dans la DropDownList
+					int idCompet = Integer.parseInt(new String (request.getParameter("choix")));
+					System.out.println("choix : "+ idCompet);
+					request.setAttribute("idCompet",idCompet);
+				}
 			}
-			else {
-				//Si non c'est qu'il a choisit une valeur dans la DropDownList
-				int idCompet = Integer.parseInt(new String (request.getParameter("choix")));
-				System.out.println("choix : "+ idCompet);
-				request.setAttribute("idCompet",idCompet);
-			}
-		}}
+		}
 		
 //			System.out.println("liste des competences null");
 		
