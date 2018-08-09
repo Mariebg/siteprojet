@@ -82,7 +82,7 @@
 	<br>
 
  <!--Pour envoyer le formulaire -->
-      <input type="submit" value="Se connecter" class="btn-login" /><br>
+      <input type="submit" value="Se connecter" class="btn-login" /><br><br>
       <br><a href="/siteprojet/utilisateur" class="href-login">Nouvelle inscription</a>
   		 </form>
    </fieldset>

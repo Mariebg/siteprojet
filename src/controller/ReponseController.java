@@ -15,7 +15,7 @@ public class ReponseController extends HttpServlet{
 	
 		System.out.println("dans le doget de reponse controller");
 		request.getRequestDispatcher("WEB-INF/reponse.jsp").forward(request, response);
-	}
+	}// fin du doget
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)	throws ServletException, IOException {
 		HttpSession session = request.getSession();
@@ -24,6 +24,9 @@ public class ReponseController extends HttpServlet{
 		
 		int nbQuestion = Integer.parseInt(request.getParameter("nbQuestion"));
 		int idQuizz = Integer.parseInt(request.getParameter("idQuizz"));
+		int score=0;
+		int idUser = (int) session.getAttribute("idUser");
+		System.out.println("id utilisateur"+idUser);
 		
 		for(int i=1; i<=nbQuestion;i++) {
 			System.out.println("rep donne : "+request.getParameter("repDonne"+i));
@@ -37,18 +40,23 @@ public class ReponseController extends HttpServlet{
 				return;
 			}
 		}
-		int idUser = (int) session.getAttribute("idUser");
-		System.out.println("id utilisateur"+idUser);
-
-		for(int i=1; i<=nbQuestion;i++) {
+		for(int i=1; i<=nbQuestion;i++) { 
 			int idQuestion = Integer.parseInt(request.getParameter("question"+i));
 			int idRepDonne = Integer.parseInt(request.getParameter("repDonne"+i));
 			db.insererChoixUser(idQuizz,idQuestion,idRepDonne);
 			int reponseJuste=db.verifierReponse(idQuizz,idQuestion,idRepDonne);
-			
-	
+			System.out.println("reponse juste : "+reponseJuste+"  reponse donne : "+idRepDonne);
+			if (reponseJuste==idRepDonne)
+				{score = score+1;
+			};
 		}
-		request.getRequestDispatcher("WEB-INF/accueil.jsp").forward(request, response);
-	}	
+		boolean parcours=db.insererParcours(idUser,idQuizz,score); 
+		System.out.println("affichage du score "+score);
+		String phraseResultat= "Vous avez eu "+score+" bonne(s) reponse(s) sur "+nbQuestion+" question(s) posee(s)";
+		request.setAttribute("erreur",erreur);
+		request.setAttribute("phraseResultat",phraseResultat);
 
-}
+		request.getRequestDispatcher("WEB-INF/parcours.jsp").forward(request, response);
+	} //fin du doPost
+
+} //fin de ReponseController

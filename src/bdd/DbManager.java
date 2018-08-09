@@ -645,6 +645,35 @@ public class DbManager implements UserDaoInterface{
 			return reponseJuste;
 		}
 
+		//--------------inserer un nouveau parcours --------------------------------------
+		public boolean insererParcours(int idUser,int idQuizz,int score) {
+				
+				//connection etablit la communication avec la base de données
+				java.sql.Connection connexion=Utilities.openConnection();
+				
+				//statement execute la requete
+				Statement st=null;
+				
+				// requete
+				String sql=" INSERT INTO `PARCOURS`(`ID_USER`,`ID_QUIZZ`,SCORE) VALUES ("+idUser+","+idQuizz+","+score+")";
+				
+				System.out.println("sql: "+ sql); 
+				try {
+					st = (Statement) connexion.prepareStatement(sql);
+					System.out.println("connection etablie");
+					
+					// execution de la request  (executeUpdate)  et récupération du résultat de la request (ResultSet)
+//					ResultSet res;
+					int rsinsert = st.executeUpdate(sql);// execute le sql 
+					System.out.println("ajout du parcours executee");
+					return true;
+				} catch (SQLException e1) {
+					System.out.println("erreur execution de la requete");
+					e1.printStackTrace();
+				}
+				return false;
+			};
+
 		
 
 }//fin UserBDD

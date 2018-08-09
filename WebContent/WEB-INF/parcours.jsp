@@ -47,8 +47,11 @@
 
 			</SELECT> <input type="submit" name="valider" value="valider">
 		</FORM>
+			<div align="center"> ${! empty erreur? erreur : ''}</div>
+		
 	</fieldset>
 
+			<div align="center"> ${! empty phraseResultat? phraseResultat : ''}</div>
 
 
 

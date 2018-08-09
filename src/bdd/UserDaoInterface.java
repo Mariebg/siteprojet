@@ -51,5 +51,9 @@ public interface UserDaoInterface {
 	
 	//----------------calcul du score --------------------------
 	public int 	verifierReponse(int idQuizz,int idQuest, int idRepDonne);
+	
+	//--------------inserer un nouveau parcours --------------------------------------
+	public boolean insererParcours(int idUser,int idQuizz,int score);
+
 
 }
