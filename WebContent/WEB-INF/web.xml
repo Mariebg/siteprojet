@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/j2ee"
+	xmlns:jsp="http://java.sun.com/xml/ns/javaee/jsp"
+	xmlns:web="http://xmlns.jcp.org/xml/ns/javaee"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
+	version="2.4">
+	<jsp-config>
+		<jsp-property-group>
+			<url-pattern>*.jsp</url-pattern>
+			<include-prelude>/WEB-INF/taglibs.jsp</include-prelude>
+		</jsp-property-group>
+	</jsp-config>
+	<servlet>
+		<servlet-name>AccueilController</servlet-name>
+		<servlet-class>controller.AccueilController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AccueilController</servlet-name>
+		<url-pattern>/accueil</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>UtilisateurController</servlet-name>
+		<servlet-class>controller.UtilisateurController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>UtilisateurController</servlet-name>
+		<url-pattern>/utilisateur</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>AdministrateurController</servlet-name>
+		<servlet-class>controller.AdministrateurController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AdministrateurController</servlet-name>
+		<url-pattern>/menuAdmin</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>CompetenceController</servlet-name>
+		<servlet-class>controller.CompetenceController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>CompetenceController</servlet-name>
+		<url-pattern>/competence</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>QuizzController</servlet-name>
+		<servlet-class>controller.QuizzController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>QuizzController</servlet-name>
+		<url-pattern>/quizz</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>QuestionController</servlet-name>
+		<servlet-class>controller.QuestionController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>QuestionController</servlet-name>
+		<url-pattern>/question</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>ChoixController</servlet-name>
+		<servlet-class>controller.ChoixController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ChoixController</servlet-name>
+		<url-pattern>/choix</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>ParcoursController</servlet-name>
+		<servlet-class>controller.ParcoursController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ParcoursController</servlet-name>
+		<url-pattern>/parcours</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>ReponseController</servlet-name>
+		<servlet-class>controller.ReponseController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ReponseController</servlet-name>
+		<url-pattern>/reponse</url-pattern>
+	</servlet-mapping>
+
+
+
+</web-app>
