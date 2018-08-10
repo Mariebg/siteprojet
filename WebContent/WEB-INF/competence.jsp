@@ -36,7 +36,7 @@
 <!-- /////////////////////////creation competence /////////////////////////////// -->
 	<fieldset>
 			<legend>
-			<h2>Nouvelle Compétence</h2>
+			<h2>Nouvelle Compétence</h2> 
 		</legend>
 	
 	<form action="competence" method="post">  

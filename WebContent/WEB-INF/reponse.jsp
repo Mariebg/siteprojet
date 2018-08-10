@@ -11,7 +11,7 @@
 <title>questionnaire à remplir</title>
 </head>
 <body>
-<%@include file="menu.jsp"%>
+<%@include file="menu.jsp"%> 
 
 		<!-- ////////// LISTE DES QUESTIONS REPONSES /////////// -->
 	<%

@@ -313,7 +313,7 @@ public class DbManager implements UserDaoInterface{
 		}
 		return null;
 	}
-	
+	 
 	//--------------Liste des competences------------------
 	public ArrayList<Competence> listerCompetence() {
 	

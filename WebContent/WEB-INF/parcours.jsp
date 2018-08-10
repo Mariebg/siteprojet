@@ -62,7 +62,7 @@
 		</legend>
 		<table border="1" cellpadding="10" cellspacing="1">
 			<tr>
-				<th width="5%">Intitulé</th>
+				<th width="5%">Intitulé</th> 
 				<th width="1%">Choix</th>
 			</tr>
 		<form action="parcours" method="post">

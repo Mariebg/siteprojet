@@ -6,3 +6,4 @@
 	<li><a href="/siteprojet/competence">Competences</a></li>
 	<li><a href="/siteprojet/quizz">Quizz</a></li>
 </ul>
+ 

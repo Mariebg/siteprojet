@@ -24,7 +24,7 @@
 		
 		<!-- ////////// TABLEAU des competences /////////// -->
 		<fieldset>
-			<legend>
+			<legend> 
 				<h2>Liste des competences</h2>
 			</legend>
 			<table border="1" cellpadding="10" cellspacing="1">

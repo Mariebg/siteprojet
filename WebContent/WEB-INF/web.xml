@@ -26,7 +26,7 @@
 	<servlet-mapping>
 		<servlet-name>UtilisateurController</servlet-name>
 		<url-pattern>/utilisateur</url-pattern>
-	</servlet-mapping>
+	</servlet-mapping> 
 	<servlet>
 		<servlet-name>AdministrateurController</servlet-name>
 		<servlet-class>controller.AdministrateurController</servlet-class>
@@ -41,7 +41,7 @@
 		<servlet-class>controller.CompetenceController</servlet-class>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>CompetenceController</servlet-name>
+		<servlet-name>CompetenceController</servlet-name> 
 		<url-pattern>/competence</url-pattern>
 	</servlet-mapping>
 
