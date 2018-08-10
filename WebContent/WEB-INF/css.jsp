@@ -14,22 +14,39 @@ body{
     height: 100%;
     width: 100%;
     margin: 0;
-
- 
   	-webkit-filter: blur(3px); 
  	filter: blur(3px);  
  	z-index: -99999;
  }
  
+ 
+ h1 {
+	 background-color: #7e5e2c;
+    text-align: center;
+    border: #fbfbfb solid 4px;
+    font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+    width: 100%;
+    border: #fbfbfb solid 4px;
+    color: white;
+    font-size: 24px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    margin-top: -44px;
+    font-weight: 700;
+    position: relative;
+    top: -15px;
+    
+    
+
+ }
 
 
 /*-------- FORMULAIRE --------------*/
 input[type=text], input[type=password] {
-color: #3c3c3c;
+	color: #3c3c3c;
     font-family: 'Montserrat', Arial, Helvetica, sans-serif;
     font-weight: 500;
     font-size: 25px;
-    border-radius: 0;
     line-height: 22px;
     background-color: #fbfbfb;
     padding: 8px 13px 9px 35px;
@@ -51,7 +68,7 @@ input[type=submit] {
     padding-top: 15px;
     padding-bottom: 15px;
     transition: all 0.3s;
-    margin-top: -49px;
+    margin-top: -44px;
     font-weight: 700;
 }
 
@@ -60,8 +77,8 @@ input[type=reset] {
     float: left;
     width: 100%;
     border: #fbfbfb solid 4px;
-    cursor: pointer;
     background-color: #117052;;
+    cursor: pointer;
     color: white;
     font-size: 24px;
     padding-top: 15px;
@@ -71,9 +88,26 @@ input[type=reset] {
     font-weight: 700;
 }
 
+.href-login {
+    font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+    float: left;
+    width: 98.2%;
+    border: #fbfbfb solid 4px;
+    cursor: pointer;
+    background-color:#117052;
+    color: white;
+    font-size: 24px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    transition: all 0.3s;
+    font-weight: 700;
+    text-decoration:none;
+    text-align:center;
+    margin-top: -4px;
+}
 
 .form-div {
-	background-color:rgba(72,72,72,0.4);
+	background-color:rgba(72, 72, 72, 0.54);
 	padding-left:35px;
 	padding-right:35px;
 	padding-top:35px;
@@ -82,10 +116,19 @@ input[type=reset] {
 	float: left;
 	left: 50%;
 	position: absolute;
- 	 margin-top:30px;
+ 	margin-top:30px;
 	margin-left: -260px;
-  border-radius: 7px;
+  	border-radius: 7px;
   
+}
+
+.dejaInscrit {
+    font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+	text-decoration:none;
+	text-align:center;
+	color:white;
+	font-size: 20px;
+
 }
 
 </style>

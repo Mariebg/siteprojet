@@ -20,7 +20,7 @@ import model.Utilisateur;
 
 public class DbManager implements UserDaoInterface{
 	
-	
+	//
 	//--------------lister les utilisateurs -----------------------
 	public ArrayList<Utilisateur> listeUsers() {
 		//connection etablit la communication avec la base de données

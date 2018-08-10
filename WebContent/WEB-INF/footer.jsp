@@ -1,3 +1,3 @@
 <footer>
-  <p>Created by Cynthia et Marie</p>
+  <p>© Copyright Afpa.2018 Marie BLONDEAU, Cynthia QUELQUEJEU</p>
 </footer>
