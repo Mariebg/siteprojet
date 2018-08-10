@@ -5,43 +5,48 @@
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-
 <head>
-    <title>Formulaire d'inscription</title>
-    <meta charset="utf-8">     <!-- pour encodage     -->
-	<script src= "script2.js"></script>   <!--  est utilise pour importer des fichiers javascript -->
+<title>S'inscrire</title>
+<meta charset="utf-8">    
 </head>
+<%@include file="css.jsp" %>
+
 <body >
-	<!-- menu -->	 
-	<%@include file="menu.jsp" %>
-<!-- <div align="center">${!empty nbErreur? nbErreur:'' }</div> -->
+	<div class="img"></div>
+		<div class="container">
+		<!-- <div align="center">${!empty nbErreur? nbErreur:'' }</div> -->
+		<div class="form-div">
+			<h1>Inscription</h1>
+	   		<form action="utilisateur" method="post">
+		      	<input type = "text" id="nom" name="nom" value="${nom}" placeholder="Nom" /><br>
+		      	<br><input type="text" id="prenom" name="prenom"value="${prenom}" placeholder="Prénom"/><br>
+		      	<br><input type="text" id="mail" name="mail"value="${mail}" placeholder="E-mail"/><br>
+		     	<br><input type="password" id="psw" name="psw"value="${psw}" placeholder="Mot de passe"/><br>	 
+		      	<br><input type="text" id="tel" name="tel"value="${tel}" placeholder="Téléphone"/><br>	
+		      	<br><input type="text" id="ste" name="ste"value="${ste}" placeholder="Société"/><br>	
+		      	<br><input type="text" id="date" name="dateCreation" value="${dateCreation}" placeholder="Date de création"/>  <br>		
+		      	<br>
+	      	<!--/// AFFICHE LES ERREURS SUR L'UN DES CHAMPS ///-->
+	      	<!-- /// PASSE DANS LE CONTROLEUR ///-->
+	      		<div>${!empty erreur? erreur:'' }</div><br>   
+		       	<br>
+		      	<br>
+		      	<br>
+				<!--/// ENVOYER LE FORMULAIRE ///-->
+         		<input type="submit" value="S'inscrire" />
+				<!--/// RESET LE FORMULAIRE ///	-->
+        		 <input type="reset" value="Annulez" />
+        		 
+        		<div class="dejaInscrit">
+					<br><a href="/siteprojet/accueil" class="dejaInscrit">Déjà iscrit ? Se connecter </a>
+				</div>
+	   		</form>
+		 </div>
 
-   <form action="utilisateur" method="post">
-   		<h1 align="center" id="titre">Formulaire d'inscription</h1>
-
-
-      	<input type = "text" id="nom" name="nom" value="${nom}" /> Votre nom  <br>
-      	<input type = "text" id="mail" name="mail"value="${mail}"/> Votre mail <br>
-      	<input type = "text" id="psw" name="psw"value="${psw}"/> Votre mot de passe <br>
-      	<input type = "text" id="tel" name="tel"value="${tel}"/> Votre telephone <br>
-      	<input type = "text" id="ste" name="ste"value="${ste}"/> Votre societe <br>
-      	<input type = "text" id="date" name="dateCreation" value="${dateCreation}"/> Date inscription <br>
-	
-      	<br>
-      	<!-- affichage msg si erreur sur 1 des champs -->
-      	<div>${!empty erreur? erreur:'' }</div><br>   <!-- passe par le controleur-->
-       	<br>
-
-      <br><br>
-<!--Pour envoyer le formulaire -->
-         <input type="submit" value="Validez" />
-<!--Pour réinitailiser le formulaire -->
-         <input type="reset" value="Annulez" />
-
-   </form>
-   
-  <!-- footer -->
-  <%@include file="footer.jsp" %>	
+		</div>
+		</div>
+  <!--/// FOOTER ///-->
+<%--  <%@include file="footer.jsp" %>	 --%>
 
 </body>
 </html>
