@@ -8,11 +8,12 @@
 </head>
 	<%@include file="css.jsp" %>
 
-<body>
+<body class="body-login">
 
 	<div align="center"> ${! empty erreur? erreur : ''}</div>
 	
-	<div class="form-div">
+	<div class="div-form-login">
+		<h1 class="h1-login">Connexion</h1>
 		<form action="accueil" method="post"><br>	
 		 	<input type = "text" class="input-login" id="login" name="login" value="${login}" placeholder="E-mail" required/><br>		 
 		  		<c:if test="${login==''}">	<b>-----------------Entrez votre login</b></c:if><br>				  	  
@@ -29,8 +30,10 @@
       		<br><a href="/siteprojet/utilisateur" class="href-login">Nouvelle inscription</a>
 		</form>
 	</div>
-		<!--/// FOOTER ///-->	
-<%-- 	<%@include file="footer.jsp" %>	 --%>
+<!--/// FOOTER ///-->	
+<footer>
+	<%@include file="footer.jsp" %>	
+<footer>
 		
 </body>
 </html>

@@ -47,6 +47,7 @@ public class DbManager implements UserDaoInterface{
 				while(rs.next()) {
 					int id=rs.getInt("ID");
 					String nom=rs.getString("NOM");
+					String prenom=rs.getString("PRENOM");
 					String dateCreation=rs.getString("DATECREATION");
 					String tel=rs.getString("TEL");
 					String ste=rs.getString("STE");
@@ -54,8 +55,8 @@ public class DbManager implements UserDaoInterface{
 					String psw=rs.getString("PSW");
 					String mail=rs.getString("MAIL");
 					boolean role=rs.getBoolean("ROLE");
-					
-					Utilisateur userBdd=new Utilisateur(id,nom,dateCreation,tel,ste,statut,psw,mail,role);
+	
+					Utilisateur userBdd=new Utilisateur(id,nom, prenom, dateCreation,tel,ste,statut,psw,mail,role);
 					
 					userBdds.add(userBdd);  //insere les données ds l'Array "users"
 					};
@@ -155,8 +156,9 @@ public class DbManager implements UserDaoInterface{
 		Statement st=null;
 		
 		// requete
-		String sql=" INSERT INTO `user`(`nom`, `dateCreation`, `tel`, `ste`, `statut`, `psw`, `mail`, `role`) VALUES ('"+
+		String sql=" INSERT INTO `user`(`nom`, `prenom`, `dateCreation`, `tel`, `ste`, `statut`, `psw`, `mail`, `role`) VALUES ('"+
 										userInsert.getNom()+"','"+
+										userInsert.getPrenom()+"','"+
 										userInsert.getDateCreation()+"','"+
 										userInsert.getTel()+"','"+
 										userInsert.getSte()+"',"+
@@ -288,6 +290,7 @@ public class DbManager implements UserDaoInterface{
 				while(rs.next()) {
 					int id=rs.getInt("ID");
 					String nom=rs.getString("NOM");
+					String prenom=rs.getString("PRENOM");
 					String dateCreation=rs.getString("DATECREATION");
 					String tel=rs.getString("TEL");
 					String ste=rs.getString("STE");
@@ -296,7 +299,7 @@ public class DbManager implements UserDaoInterface{
 					String mail=rs.getString("MAIL");
 					boolean role=rs.getBoolean("ROLE");
 					
-					Utilisateur stagiaireBdd=new Utilisateur(id,nom,dateCreation,tel,ste,statut,psw,mail,role);
+					Utilisateur stagiaireBdd=new Utilisateur(id,nom, prenom, dateCreation,tel,ste,statut,psw,mail,role);
 					
 					stagiaireBdds.add(stagiaireBdd);  //insere les données ds l'Array "users"
 					};
