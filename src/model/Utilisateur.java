@@ -3,6 +3,7 @@ package model;
 public class Utilisateur {
 	private int id;
 	private String nom;
+	private String prenom;
 	private String dateCreation;
 	private String tel;
 	private String ste;
@@ -11,11 +12,11 @@ public class Utilisateur {
 	private String mail;
 	private boolean role;
 	
-	public Utilisateur(int id,String nom,String dateCreation,String tel,
-			String ste,boolean statut,String psw,String mail,boolean role
-			) {
+	public Utilisateur(int id,String nom, String prenom, String dateCreation,String tel,
+			String ste,boolean statut,String psw,String mail,boolean role) {
 		this.id=id;
 		this.nom=nom;
+		this.prenom=prenom;
 		this.dateCreation=dateCreation;
 		this.tel=tel;
 		this.ste=ste;
@@ -32,9 +33,11 @@ public class Utilisateur {
 	}
 	
 	
-	public Utilisateur(String nom,String dateCreation,String tel,
+// CONTRUCTEUR POUR INSCRIPTION 
+	public Utilisateur(String nom, String prenom, String dateCreation,String tel,
 			String ste,boolean statut,String psw,String mail) {
 		this.nom=nom;
+		this.prenom=prenom;
 		this.dateCreation=dateCreation;
 		this.tel=tel;
 		this.ste=ste;
@@ -57,6 +60,11 @@ public Utilisateur() {
 		return nom;	}
 	public void setNom(String nom) {
 		this.nom = nom;	}
+	
+	public String getPrenom() {
+		return prenom; }
+	public void setPrenom(String prenom) {
+		this.prenom = prenom; }
 	
 	public String getDateCreation() {
 		return dateCreation;	}
@@ -93,7 +101,6 @@ public Utilisateur() {
 	public void setRole(boolean role) {
 		this.role = role;	}
 
-
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -102,6 +109,7 @@ public Utilisateur() {
 		result = prime * result + id;
 		result = prime * result + ((mail == null) ? 0 : mail.hashCode());
 		result = prime * result + ((nom == null) ? 0 : nom.hashCode());
+		result = prime * result + ((prenom == null) ? 0 : prenom.hashCode());
 		result = prime * result + ((psw == null) ? 0 : psw.hashCode());
 		result = prime * result + (role ? 1231 : 1237);
 		result = prime * result + (statut ? 1231 : 1237);
@@ -109,7 +117,6 @@ public Utilisateur() {
 		result = prime * result + ((tel == null) ? 0 : tel.hashCode());
 		return result;
 	}
-
 
 	@Override
 	public boolean equals(Object obj) {
@@ -137,6 +144,11 @@ public Utilisateur() {
 				return false;
 		} else if (!nom.equals(other.nom))
 			return false;
+		if (prenom == null) {
+			if (other.prenom != null)
+				return false;
+		} else if (!prenom.equals(other.prenom))
+			return false;
 		if (psw == null) {
 			if (other.psw != null)
 				return false;
@@ -158,7 +170,5 @@ public Utilisateur() {
 			return false;
 		return true;
 	}
-	
-
 
 }
