@@ -47,6 +47,7 @@ public class DbManager implements UserDaoInterface{
 				while(rs.next()) {
 					int id=rs.getInt("ID");
 					String nom=rs.getString("NOM");
+					String prenom=rs.getString("PRENOM");
 					String dateCreation=rs.getString("DATECREATION");
 					String tel=rs.getString("TEL");
 					String ste=rs.getString("STE");
@@ -55,7 +56,7 @@ public class DbManager implements UserDaoInterface{
 					String mail=rs.getString("MAIL");
 					boolean role=rs.getBoolean("ROLE");
 					
-					Utilisateur userBdd=new Utilisateur(id,nom,dateCreation,tel,ste,statut,psw,mail,role);
+					Utilisateur userBdd=new Utilisateur(id,nom,prenom,dateCreation,tel,ste,statut,psw,mail,role);
 					
 					userBdds.add(userBdd);  //insere les données ds l'Array "users"
 					};
@@ -94,6 +95,7 @@ public class DbManager implements UserDaoInterface{
 				if(rs.next()) {
 					int id=rs.getInt("ID");
 					String nom=rs.getString("NOM");
+					String prenom=rs.getString("PRENOM");
 					boolean role=rs.getBoolean("ROLE");
 //					String dateCreation=rs.getString("DATECREATION");
 //					String tel=rs.getString("TEL");
@@ -103,7 +105,7 @@ public class DbManager implements UserDaoInterface{
 //					String mail=rs.getString("MAIL");
 					
 //					Utilisateur user=new Utilisateur(id,nom,role,dateCreation,tel,ste,statut,psw,mail);
-					Utilisateur user=new Utilisateur(id,nom,role);
+					Utilisateur user=new Utilisateur(id,nom,prenom,role);
 					return user;}
 				
 				else return null;
@@ -288,6 +290,7 @@ public class DbManager implements UserDaoInterface{
 				while(rs.next()) {
 					int id=rs.getInt("ID");
 					String nom=rs.getString("NOM");
+					String prenom=rs.getString("PRENOM");
 					String dateCreation=rs.getString("DATECREATION");
 					String tel=rs.getString("TEL");
 					String ste=rs.getString("STE");
@@ -296,7 +299,7 @@ public class DbManager implements UserDaoInterface{
 					String mail=rs.getString("MAIL");
 					boolean role=rs.getBoolean("ROLE");
 					
-					Utilisateur stagiaireBdd=new Utilisateur(id,nom,dateCreation,tel,ste,statut,psw,mail,role);
+					Utilisateur stagiaireBdd=new Utilisateur(id,nom,prenom,dateCreation,tel,ste,statut,psw,mail,role);
 					
 					stagiaireBdds.add(stagiaireBdd);  //insere les données ds l'Array "users"
 					};

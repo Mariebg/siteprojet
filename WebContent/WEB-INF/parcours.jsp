@@ -14,10 +14,10 @@
 <title>Parcours</title>
 </head>
 <body>
-	<!-- ////////// TABLEAU USERS EN ATTENTE /////////// -->
+	<!-- ////////// liste de competences /////////// -->
 	<fieldset>
 		<legend>
-			<h2>Liste des sujets.</h2>
+			<h2>Liste des competences</h2>
 		</legend>
 		<%
 		    int idUser;
@@ -30,21 +30,16 @@
 			}
 			else {listeCompetences=(new DbManager()).listerCompetence();}
 			
-			System.out.println("taille" + listeCompetences.size());
+			System.out.println("Nb de competences : " + listeCompetences.size());
 		%>
 		<FORM action="parcours" method="get">
-
 			<SELECT name="choix" size="1" width="60">
 				<option value="-"></option>
-				<%
-					for (int i = 0; i < listeCompetences.size(); i++) {
-				%>
-
+					<%for (int i = 0; i < listeCompetences.size(); i++) {%>
 				<OPTION	value=<%out.println(listeCompetences.get(i).getIdCompet());%>>
 					<%out.println(listeCompetences.get(i).getSujet());%>
 				</OPTION>
-				<%}%>
-
+					<%}%>
 			</SELECT> <input type="submit" name="valider" value="valider">
 		</FORM>
 			<div align="center"> ${! empty erreur? erreur : ''}</div>
@@ -52,15 +47,13 @@
 	</fieldset>
 
 			<div align="center"> ${! empty phraseResultat? phraseResultat : ''}</div>
-
-
-
 	<!-- ////////// LISTE DES QUIZZ /////////// -->
 	<%
 	DbManager db = new DbManager();
 	ArrayList<Quizz> listeQuizz = null;
 	
 	System.out.println("avant le formulaire liste des quizz");
+	System.out.println("id de la competence choisie : "+ request.getAttribute("idCompet"));
 
 	if (request.getAttribute("idCompet") != null) {%>
 	<fieldset>
