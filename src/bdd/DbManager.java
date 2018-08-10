@@ -20,7 +20,7 @@ import model.Utilisateur;
 
 public class DbManager implements UserDaoInterface{
 	
-	
+	//
 	//--------------lister les utilisateurs -----------------------
 	public ArrayList<Utilisateur> listeUsers() {
 		//connection etablit la communication avec la base de données
@@ -55,8 +55,13 @@ public class DbManager implements UserDaoInterface{
 					String psw=rs.getString("PSW");
 					String mail=rs.getString("MAIL");
 					boolean role=rs.getBoolean("ROLE");
+<<<<<<< HEAD
 					
 					Utilisateur userBdd=new Utilisateur(id,nom,prenom,dateCreation,tel,ste,statut,psw,mail,role);
+=======
+	
+					Utilisateur userBdd=new Utilisateur(id,nom, prenom, dateCreation,tel,ste,statut,psw,mail,role);
+>>>>>>> refs/remotes/origin/cynthia
 					
 					userBdds.add(userBdd);  //insere les données ds l'Array "users"
 					};
@@ -157,8 +162,9 @@ public class DbManager implements UserDaoInterface{
 		Statement st=null;
 		
 		// requete
-		String sql=" INSERT INTO `user`(`nom`, `dateCreation`, `tel`, `ste`, `statut`, `psw`, `mail`, `role`) VALUES ('"+
+		String sql=" INSERT INTO `user`(`nom`, `prenom`, `dateCreation`, `tel`, `ste`, `statut`, `psw`, `mail`, `role`) VALUES ('"+
 										userInsert.getNom()+"','"+
+										userInsert.getPrenom()+"','"+
 										userInsert.getDateCreation()+"','"+
 										userInsert.getTel()+"','"+
 										userInsert.getSte()+"',"+
@@ -299,7 +305,11 @@ public class DbManager implements UserDaoInterface{
 					String mail=rs.getString("MAIL");
 					boolean role=rs.getBoolean("ROLE");
 					
+<<<<<<< HEAD
 					Utilisateur stagiaireBdd=new Utilisateur(id,nom,prenom,dateCreation,tel,ste,statut,psw,mail,role);
+=======
+					Utilisateur stagiaireBdd=new Utilisateur(id,nom, prenom, dateCreation,tel,ste,statut,psw,mail,role);
+>>>>>>> refs/remotes/origin/cynthia
 					
 					stagiaireBdds.add(stagiaireBdd);  //insere les données ds l'Array "users"
 					};

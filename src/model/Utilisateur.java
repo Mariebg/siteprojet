@@ -12,9 +12,14 @@ public class Utilisateur {
 	private String mail;
 	private boolean role;
 	
+<<<<<<< HEAD
 	public Utilisateur(int id,String nom,String prenom,String dateCreation,String tel,
 			String ste,boolean statut,String psw,String mail,boolean role
 			) {
+=======
+	public Utilisateur(int id,String nom, String prenom, String dateCreation,String tel,
+			String ste,boolean statut,String psw,String mail,boolean role) {
+>>>>>>> refs/remotes/origin/cynthia
 		this.id=id;
 		this.nom=nom;
 		this.prenom=prenom;
@@ -35,7 +40,12 @@ public class Utilisateur {
 	}
 	
 	
+<<<<<<< HEAD
 	public Utilisateur(String nom,String prenom,String dateCreation,String tel,
+=======
+// CONTRUCTEUR POUR INSCRIPTION 
+	public Utilisateur(String nom, String prenom, String dateCreation,String tel,
+>>>>>>> refs/remotes/origin/cynthia
 			String ste,boolean statut,String psw,String mail) {
 		this.nom=nom;
 		this.prenom=prenom;
@@ -63,9 +73,15 @@ public Utilisateur() {
 		this.nom = nom;	}
 	
 	public String getPrenom() {
+<<<<<<< HEAD
 		return prenom;	}
 	public void setPrenom(String prenom) {
 		this.prenom = prenom;	}
+=======
+		return prenom; }
+	public void setPrenom(String prenom) {
+		this.prenom = prenom; }
+>>>>>>> refs/remotes/origin/cynthia
 	
 	public String getDateCreation() {
 		return dateCreation;	}
@@ -102,7 +118,6 @@ public Utilisateur() {
 	public void setRole(boolean role) {
 		this.role = role;	}
 
-
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -119,7 +134,6 @@ public Utilisateur() {
 		result = prime * result + ((tel == null) ? 0 : tel.hashCode());
 		return result;
 	}
-
 
 	@Override
 	public boolean equals(Object obj) {
@@ -173,7 +187,5 @@ public Utilisateur() {
 			return false;
 		return true;
 	}
-	
-
 
 }
