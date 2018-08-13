@@ -38,6 +38,7 @@ public class AccueilController extends HttpServlet {
  			request.getSession().setAttribute("idUser",u.getId());
  			request.getSession().setAttribute("role",u.isRole());
  			request.getSession().setAttribute("nomUser",u.getNom());
+ 			request.getSession().setAttribute("prenomUser",u.getPrenom());
 			if (u.isRole()==true) {
 				methodes.AffichagePageAdmin.affichagePageAdmin(request); //affiche les utilisateurs en attente et valide dans 2 listes sur la page menuAdmin.jsp
 				request.getRequestDispatcher("WEB-INF/menuAdmin.jsp").forward(request, response);
