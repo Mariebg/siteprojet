@@ -9,101 +9,96 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Gestion Administrateur</title>
 </head>
+	<%@include file="css.jsp" %>
+
 <body>
-	<style>
-	#btn {
-		margin-left: 95%;
-	}
-	</style>
-	<!-- menu au lieu de coder html sur chaque page, il est possible de le placer ds un jsp et de l'importer(include)  -->
 	<%@include file="menuAd.jsp"%>
 
-
-	<br>
-
-	<br> 
-	<br>
-	<h1>Gestion Administrateur</h1>
+<!-- 	<h1 class="h1-admin">Gestion utilisateurs</h1> -->
 	<br>
 	<br>
 	<div align="center">${! empty erreur? erreur : ''}</div>
 	<br>
 	<br>
-	<div class="list_stg">
 	<!-- ////////// TABLEAU USERS EN ATTENTE /////////// -->
 		<fieldset>
 			<legend>
 				<h2>Utilisateur(s) en attente(s)</h2>
 			</legend>
 			<table border="1" cellpadding="10" cellspacing="1">
+			<thead>
 				<tr>
-					<th width="25%">Nom</th>
-					<th width="5%">Date d'inscription</th>
+					<th width="20%">Nom</th>
+					<th width="20%">Prénom</th>
 					<th width="5%">Téléphone</th>
-					<th width="20%">Société</th>
 					<th width="20%">Mail</th>
+					<th width="20%">Société</th>
+					<th width="5%">Date d'inscription</th>
 					<th width="5%">Validation</th>
 				</tr>
-	<form action="menuAdmin" methode= "get"> <!-- formulaire qui sert à valider les checkbox -->
-				<% 
-				ArrayList<Utilisateur> usersAttente;
-				usersAttente = (ArrayList<Utilisateur>) request.getAttribute("listeStgAttentes"); //cree un nouveau tableau usersAttente avec le contenu du tableau listeStgAttentes charge dans accueilControler
-				session.setAttribute("listeStgAttentes",usersAttente);
-				
-				System.out.println("taille" + usersAttente.size());
-				for (int i = 0; i < usersAttente.size(); i++) {
-				%>
-				<tr>
-					<td><%out.println(usersAttente.get(i).getNom());%></td>
-					<td align="center"><%out.println(usersAttente.get(i).getDateCreation());%></td>
-					<td align="center"><%out.println(usersAttente.get(i).getTel());%></td>
-					<td><%out.println(usersAttente.get(i).getSte());%></td>
-					<td><% out.println(usersAttente.get(i).getMail());%></td>
-					
-					<td align="center"><input type="checkbox" name="<%= usersAttente.get(i).getId()%>" ></td> <!--on donne la valeur de l'id à name  --> 
-  				</tr>
-				<% } %>
+			</thead>	
+		<form action="menuAdmin" methode= "get"> 
+			<% 
+			ArrayList<Utilisateur> usersAttente;
+			usersAttente = (ArrayList<Utilisateur>) request.getAttribute("listeStgAttentes"); //cree un nouveau tableau usersAttente avec le contenu du tableau listeStgAttentes charge dans accueilControler
+			session.setAttribute("listeStgAttentes",usersAttente);
+			
+			System.out.println("taille" + usersAttente.size());
+			for (int i = 0; i < usersAttente.size(); i++) {
+			%>
+			<tr>
+				<td><%out.println(usersAttente.get(i).getNom());%></td>
+				<td><%out.println(usersAttente.get(i).getPrenom());%></td>
+				<td align="center"><%out.println(usersAttente.get(i).getTel());%></td>
+				<td><% out.println(usersAttente.get(i).getMail());%></td>
+				<td><%out.println(usersAttente.get(i).getSte());%></td>
+				<td align="center"><%out.println(usersAttente.get(i).getDateCreation());%></td>				
+				<td align="center"><input type="checkbox" name="<%= usersAttente.get(i).getId()%>" ></td> <!--on donne la valeur de l'id à name  --> 
+			</tr>
+			<% } %>
 			</table>
-			<input type="submit" name="valider" value="valider">
-	</form>
+			
+			<input class="submit-tab" type="submit" name="valider" value="valider">
+		</form>
+		
 		</fieldset>
-
 		<!-- ////////// TABLEAU USERS VALIDÉS /////////// -->
-		<fieldset>
-			<legend>
-				<h2>Utilisateur(s) valide(s)</h2>
+		<fieldset class="fieldset-tab">
+			<legend class="legend-tab">
+				<h2>Utilisateur(s) validé(s)</h2>
 			</legend>
 			<table border="1" cellpadding="10" cellspacing="1">
 				<tr>
-					<th width="25%">Nom</th>
-					<th width="5%">Date d'inscription</th>
+					<th width="20%">Nom</th>
+					<th width="20%">Prénom</th>
 					<th width="5%">Téléphone</th>
-					<th width="20%">Société</th>
 					<th width="20%">Mail</th>
+					<th width="20%">Société</th>
+					<th width="5%">Date d'inscription</th>
 				</tr>
 
-				<% 
-//					ArrayList<Utilisateur> users=UserBDD.listeAttenteStagiaire(false);
-					ArrayList<Utilisateur> userValides;
-					userValides = (ArrayList<Utilisateur>) request.getAttribute("listeStgValides");
-					
-					System.out.println("taille" + userValides.size());
-					for (int i = 0; i < userValides.size(); i++) {
-				%>
+			<% 
+//				ArrayList<Utilisateur> users=UserBDD.listeAttenteStagiaire(false);
+				ArrayList<Utilisateur> userValides;
+				userValides = (ArrayList<Utilisateur>) request.getAttribute("listeStgValides");	
+				
+				System.out.println("taille" + userValides.size());
+				for (int i = 0; i < userValides.size(); i++) {
+			%>
 				<tr>
 					<td><%out.println(userValides.get(i).getNom());%></td>
-					<td align="center"><%out.println(userValides.get(i).getDateCreation());%></td>
+					<td><%out.println(usersAttente.get(i).getPrenom());%></td>
 					<td align="center"><%out.println(userValides.get(i).getTel());%></td>
-					<td><%out.println(userValides.get(i).getSte());%></td>
 					<td><% out.println(userValides.get(i).getMail());%></td>
+					<td><%out.println(userValides.get(i).getSte());%></td>
+					<td align="center"><%out.println(userValides.get(i).getDateCreation());%></td>
 				</tr>
 				<% } %>
 			</table>
 		</fieldset>
 		
-		
-	</div>
-
-
+<footer>
+	<%@include file="footer.jsp"%>
+</footer>
 </body>
 </html>
