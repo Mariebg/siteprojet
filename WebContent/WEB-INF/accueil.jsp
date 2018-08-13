@@ -12,7 +12,8 @@
 
 	<div align="center"> ${! empty erreur? erreur : ''}</div>
 	
-	<div class="div-form-login">
+	</div>
+		<div class="div-form-login">
 		<h1 class="h1-login">Connexion</h1>
 		<form action="accueil" method="post"><br>	
 		 	<input type = "text" class="input-login" id="login" name="login" value="${login}" placeholder="E-mail" required/><br>		 
@@ -30,6 +31,7 @@
       		<br><a href="/siteprojet/utilisateur" class="href-login">Nouvelle inscription</a>
 		</form>
 	</div>
+	
 <!--/// FOOTER ///-->	
 <footer>
 	<%@include file="footer.jsp" %>	

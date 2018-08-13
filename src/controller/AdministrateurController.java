@@ -5,10 +5,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.websocket.Session;
 
 import bdd.DbManager;
 import model.Utilisateur;
@@ -17,7 +19,7 @@ import model.Utilisateur;
 
 public class AdministrateurController extends HttpServlet {
 
-	private static final long serialVersionUID = 1L;
+	//private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -28,6 +30,7 @@ public class AdministrateurController extends HttpServlet {
 		System.out.println("passage dans le doget");
 		if (users != null)
 			for (int i = 0; i < users.size(); i++) {
+				System.out.println("passage dans le test apres le doget");
 				if (request.getParameter("" + users.get(i).getId()) != null) {
 					System.out.println(users.get(i).getId());
 					DbManager db=new DbManager();

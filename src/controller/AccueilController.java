@@ -14,7 +14,7 @@ import model.Utilisateur;
 public class AccueilController extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		System.out.println("passage debut de accueil controler");
 		request.getRequestDispatcher("WEB-INF/accueil.jsp").forward(request, response);
 	}
 

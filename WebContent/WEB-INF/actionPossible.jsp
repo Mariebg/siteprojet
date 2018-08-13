@@ -13,30 +13,17 @@
 
 <script type="text/javascript">
 
-function afficheParcours(){
-	<%
-//	HttpSession session = request.getSession();
-	boolean passage=false;
-	int idUser=(int) session.getAttribute("idUser"); //recuperer par la session creee
-	DbManager db=new DbManager();
-	
-
-	ArrayList<Parcours> listeParcours = (ArrayList<Parcours>) db.listerParcours(idUser); //cree un nouveau tableau avec les parcours d'un utilisateur
-	pageContext.setAttribute("listeParcours", listeParcours);
-	//session.setAttribute("listeQuizz", listeQuizz);
-	System.out.println("taille" + listeParcours.size());
-	%>
-	<table>
-		<c:forEach items="${listeParcours}" var="parcours">
-		<tr>
-			<td><c:out value="${parcours.intituleQuizz}"></c:out></td>
-			<td>     Score  <c:out value="${parcours.score}"></c:out></td>
-		</tr>
-		</c:forEach>
-	</table>	
+function afficheParcours(afficheParcours){
+		divInfo = document.getElementById('divacacher');
+		 
+		if (divInfo.style.display == 'none')
+		divInfo.style.display = 'block';
+		else
+		divInfo.style.display = 'none';
 }	
+
 function affichemsg(){
-"je fais l'action demandee";
+	alert("je fais l'action demandee");
 }	
 </script>
 </head>
@@ -87,11 +74,35 @@ function affichemsg(){
 	
 	<br><br><br><br><br>
 	
-    <br><a class="btn-login" href="#" onclick='affichemsg()' class="href-login">Resultat des parcours</a>
+    <br><input type="button" class="btn-login" class="href-login" placeholder="Resultat des parcours" onclick='afficheParcours()'  />Resultat des parcours
+    
 <!-- 
-    <br><input type="button" class="btn-login"  onclick='afficheParcours();' class="href-login"/>Resultat des parcours
+    <br><a class="btn-login" href="#" onclick='affichemsg()' class="href-login">Resultat des parcours</a>
     <br><a class="btn-login" href="/siteprojet/resultatParcours" class="href-login">Resultat des parcours</a>
  -->
+ 
+    <div id="divacacher" style="display:none;">
+    	<%
+	//	HttpSession session = request.getSession();
+		boolean passage=false;
+		int idUser=(int) session.getAttribute("idUser"); //recuperer par la session creee
+		DbManager db=new DbManager();
+		
+	
+		ArrayList<Parcours> listeParcours = (ArrayList<Parcours>) db.listerParcours(idUser); //cree un nouveau tableau avec les parcours d'un utilisateur
+		pageContext.setAttribute("listeParcours", listeParcours);
+		//session.setAttribute("listeQuizz", listeQuizz);
+		System.out.println("taille" + listeParcours.size());
+		%>
+		<table>
+			<c:forEach items="${listeParcours}" var="parcours">
+			<tr>
+				<td><c:out value="${parcours.intituleQuizz}"></c:out></td>
+				<td>     Score  <c:out value="${parcours.score}"></c:out></td>
+			</tr>
+			</c:forEach>
+		</table>	
+    </div>
 	<br><br><br><br><br>
 	
       <br><a class="btn-login" href="/siteprojet/parcours" class="href-login">Nouveau Parcours</a>
