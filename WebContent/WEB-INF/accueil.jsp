@@ -6,90 +6,34 @@
 <LINK href="/css/siteProjet.css" rel="stylesheet" type="text/css">
 <title>Login</title>
 </head>
-<body>
+	<%@include file="css.jsp" %>
 
-<style>
-.btn-login {
-	color:#343434;
-    height: 30px;
-    margin-left: 117px;
-    font-family: sans-serif;
-    font-size: 16px;
-    background-color: #F7AC18;
-    color: white;
-    border-radius: 8px;
-    border: none;
-    box-shadow: 1px 5px 10px 0px #696767;
-}
+<body class="body-login">
 
-.fieldset-login {
-	height: 319px;
-    border-radius: 10px;
-    width: 23%;
-    margin: auto;
-    box-shadow: 0px 6px 16px 0px #888383;
-    border: none;
-}
-
-
-.legend-login {
-	color: gray;
-    font-size: 29px;
-    text-align: center;
-    font-family: sans-serif;
-}
-
-.input-login {
-	border-top: none;
-    border-bottom: solid #dedede 2px;
-    border-right: none;
-    border-left: none;
-    margin-left: 25%;
-    margin-top: 30px;
-    font-size: 18px;
-    font-style: italic;
-    font-family: sans-serif;
-}
-
-.href-login {
-	text-decoration: none;
-	 font-family: sans-serif;
-	 font-size: 14px;
-}
-
-</style>
-	<br>
-	
-	<!-- menu au lieu de coder html sur chaque page, il est possible de le placer ds un jsp et de l'importer(include)  -->
-	<%@include file="menu.jsp" %>
-	<br><br><br><br><br>
-<!-- 	<h1>ACCUEIL PROJET</h1> -->
-	<br><br>
 	<div align="center"> ${! empty erreur? erreur : ''}</div>
-	<br><br><br>
 	
-	<fieldset class="fieldset-login">
-		<legend class="legend-login">Connexion</legend>
+	<div class="div-form-login">
+		<h1 class="h1-login">Connexion</h1>
 		<form action="accueil" method="post"><br>	
-		  <input type = "text" class="input-login" id="login" name="login" value="${login}" placeholder="E-mail" required/><br>		 
-		  	<c:if test="${login==''}">	<b>-----------------Entrez votre login</b></c:if><br>		
-		  	  
-	      <input type = "password" class="input-login" id="psw" name="psw" value="${psw}" placeholder="Mot de passe" required/>  	      
-		  	<c:if test="${psw==''}">	<b>-----------------Entrez votre mot de passe</b></c:if><br>
-		  <br>  
-<!-- 	  <br> Administrateur  :  -->
-<!-- 	  <input type="checkbox" id="admin" name="admin" value="1"  />  Cliquez si admin -->
-	<br>
-
- <!--Pour envoyer le formulaire -->
-      <input type="submit" value="Se connecter" class="btn-login" /><br><br>
-      <br><a href="/siteprojet/utilisateur" class="href-login">Nouvelle inscription</a>
-  		 </form>
-   </fieldset>
-	<br><br><br><br><br><br><br><br><br><br>  
-	<!-- footer -->	
+		 	<input type = "text" class="input-login" id="login" name="login" value="${login}" placeholder="E-mail" required/><br>		 
+		  		<c:if test="${login==''}">	<b>-----------------Entrez votre login</b></c:if><br>				  	  
+	     	<input type = "password" class="input-login" id="psw" name="psw" value="${psw}" placeholder="Mot de passe" required/>  	      
+		  		<c:if test="${psw==''}">	<b>-----------------Entrez votre mot de passe</b></c:if><br>
+		  	<br>
+		  	<br>  
+			<br>  
+		  	<br>
+		  	<br>  
+ 			<!--/// ENVOYER LE FORMULAIRE ///-->
+      		<input type="submit" value="Se connecter" class="btn-login"/><br>
+      		<!--/// INSCRIPTION ///-->
+      		<br><a href="/siteprojet/utilisateur" class="href-login">Nouvelle inscription</a>
+		</form>
+	</div>
+<!--/// FOOTER ///-->	
+<footer>
 	<%@include file="footer.jsp" %>	
-	
-	
+</footer>
+		
 </body>
 </html> 

@@ -11,97 +11,118 @@ public class Utilisateur {
 	private String psw;
 	private String mail;
 	private boolean role;
-	
-	public Utilisateur(int id,String nom,String prenom,String dateCreation,String tel,
-			String ste,boolean statut,String psw,String mail,boolean role
-			) {
-		this.id=id;
-		this.nom=nom;
-		this.prenom=prenom;
-		this.dateCreation=dateCreation;
-		this.tel=tel;
-		this.ste=ste;
-		this.statut=statut;
-		this.psw=psw;
-		this.mail=mail;
-		this.role=role;
+
+	public Utilisateur(int id, String nom, String prenom, String dateCreation, String tel, String ste, boolean statut,
+			String psw, String mail, boolean role) {
+
+		this.id = id;
+		this.nom = nom;
+		this.prenom = prenom;
+		this.dateCreation = dateCreation;
+		this.tel = tel;
+		this.ste = ste;
+		this.statut = statut;
+		this.psw = psw;
+		this.mail = mail;
+		this.role = role;
 	}
-	
-	public Utilisateur(int id,String nom,String prenom,boolean role) {
-		this.id=id;
-		this.nom=nom;
-		this.prenom=prenom;
-		this.role=role;
+
+	public Utilisateur(int id, String nom, String prenom, boolean role) {
+		this.id = id;
+		this.nom = nom;
+		this.prenom = prenom;
+		this.role = role;
 	}
-	
-	
-	public Utilisateur(String nom,String prenom,String dateCreation,String tel,
-			String ste,boolean statut,String psw,String mail) {
-		this.nom=nom;
-		this.prenom=prenom;
-		this.dateCreation=dateCreation;
-		this.tel=tel;
-		this.ste=ste;
-		this.statut=statut;
-		this.psw=psw;
-		this.mail=mail;
+
+	// CONTRUCTEUR POUR INSCRIPTION
+	public Utilisateur(String nom, String prenom, String dateCreation, String tel,String ste, boolean statut, String psw, String mail) {
+		this.nom = nom;
+		this.prenom = prenom;
+		this.dateCreation = dateCreation;
+		this.tel = tel;
+		this.ste = ste;
+		this.statut = statut;
+		this.psw = psw;
+		this.mail = mail;
 	}
-	
-	
-public Utilisateur() {
+
+	public Utilisateur() {
 		// TODO Auto-generated constructor stub
 	}
-	//getters et setters
+
+	// getters et setters
 	public int getId() {
 		return id;	}
 	public void setId(int id) {
-		this.id = id;	}
-	
+		this.id = id;
+	}
+
 	public String getNom() {
 		return nom;	}
 	public void setNom(String nom) {
-		this.nom = nom;	}
-	
+		this.nom = nom;}
+
 	public String getPrenom() {
 		return prenom;	}
 	public void setPrenom(String prenom) {
-		this.prenom = prenom;	}
+		this.prenom = prenom;}
 	
+
 	public String getDateCreation() {
-		return dateCreation;	}
+		return dateCreation;
+	}
+
 	public void setDateCreation(String dateCreation) {
-		this.dateCreation = dateCreation;	}
+		this.dateCreation = dateCreation;
+	}
 
 	public String getTel() {
-		return tel;	}
+		return tel;
+	}
+
 	public void setTel(String tel) {
-		this.tel = tel;	}
+		this.tel = tel;
+	}
 
 	public String getSte() {
-		return ste;	}
+		return ste;
+	}
+
 	public void setSte(String ste) {
-		this.ste = ste;	}
+		this.ste = ste;
+	}
 
 	public boolean isStatut() {
-		return statut;	}
-	public void setStatut(boolean statut) {
-		this.statut = statut;}
-	
-	public String getPsw() {
-		return psw;	}
-	public void setPsw(String psw) {
-		this.psw = psw;	}
-	
-	public String getMail() {
-		return mail;	}
-	public void setMail(String mail) {
-		this.mail = mail;}
-	
-	public boolean isRole() {
-		return role;	}
-	public void setRole(boolean role) {
-		this.role = role;	}
+		return statut;
+	}
 
+	public void setStatut(boolean statut) {
+		this.statut = statut;
+	}
+
+	public String getPsw() {
+		return psw;
+	}
+
+	public void setPsw(String psw) {
+		this.psw = psw;
+	}
+
+	public String getMail() {
+		return mail;
+	}
+
+	public void setMail(String mail) {
+		this.mail = mail;
+	}
+
+	public boolean isRole() {
+		return role;
+	}
+
+	public void setRole(boolean role) {
+		this.role = role;
+	}
 
 	@Override
 	public int hashCode() {
@@ -119,7 +140,6 @@ public Utilisateur() {
 		result = prime * result + ((tel == null) ? 0 : tel.hashCode());
 		return result;
 	}
-
 
 	@Override
 	public boolean equals(Object obj) {
@@ -173,7 +193,5 @@ public Utilisateur() {
 			return false;
 		return true;
 	}
-	
-
 
 }

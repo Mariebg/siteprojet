@@ -36,6 +36,7 @@ public class UtilisateurController extends HttpServlet {
 				Utilisateur userInsert= new Utilisateur();
 				
 				String nom=request.getParameter("nom");
+				String prenom=request.getParameter("prenom");
 				String mail=request.getParameter("mail");
 				String psw=request.getParameter("psw");
 				String tel=request.getParameter("tel");
@@ -43,6 +44,7 @@ public class UtilisateurController extends HttpServlet {
 				String dateCreation=request.getParameter("dateCreation");
 				
 				userInsert.setNom(nom);
+				userInsert.setNom(prenom);
 				userInsert.setMail(mail);
 				userInsert.setDateCreation(dateCreation);
 				userInsert.setTel(tel);
