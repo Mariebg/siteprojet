@@ -4,46 +4,50 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Questionnaire</title>
+<title>Création d'un questionnaire</title>
 </head>
+	<%@include file="css.jsp" %>
 <body>
-	<%@include file="menu.jsp"%>
-
 	<!-- menu au lieu de coder html sur chaque page, il est possible de le placer ds un jsp et de l'importer(include)  -->
 	<%@include file="menuAd.jsp"%>
 
-	<!-- /////////////////////////creation question /////////////////////////////// -->
-	<fieldset>
-		<legend>
-			<h2>Nouvelle Question</h2>
-		</legend>
-
+	<!--///// CREATION D'UNE QUESTION -->
 		<form action="question" method="post">
-			<input id="question" name= question value ="${question}" placeholder="Entrez votre question." required>
+			<input class="intitule" id="question" name= question value ="${question}" placeholder="Entrez votre question" required>
 	</fieldset> 
-		<!-- /////////////////////////creation reponse /////////////////////////////// -->
+		<!--///// CREATION DES RÉPONSES /////-->
 		<fieldset>
 			<legend>
-				<h2>Entrez les réponses sans oublier de cocher la reponse correcte</h2>
+				<h2>Entrez les réponses sans oublier de cocher la bonne réponse</h2>
 			</legend>
- 				<input type="text" id="reponse" name="reponse1" value ="${reponse1}" placeholder="Entrez une réponse." />		
-				<input type="radio" name="repCorrect" value="1"/> (Cochez SI bonne réponse)<br>
+			<table class="tab-quest">
+ 				<tr> <!--  TR = ligne -->
+ 					<!-- Colonnes -->
+ 					<th><input class="rep1" type="text" id="reponse" name="reponse1" value ="${reponse1}" placeholder="Entrez une réponse" /></th>
+					<td><input type="radio" name="repCorrect" value="1"/> (Cochez SI bonne réponse) </td>
+				</tr>
+ 				<tr>
+ 					<th><input type="text" id="reponse" name="reponse2" value ="${reponse2}" placeholder="Entrez une réponse" /></th>
+					<td><input type="radio" name="repCorrect" value="2"/> (Cochez SI bonne réponse)</td>
+				</tr>
+ 				<tr>
+ 					<th><input type="text" id="reponse" name="reponse3" value ="${reponse3}" placeholder="Entrez une réponse" /></th>
+					<td><input type="radio" name="repCorrect" value="3"/> (Cochez SI bonne réponse)</td>
+				</tr>
+ 				<tr>
+ 					<th><input type="text" id="reponse" name="reponse4" value ="${reponse4}" placeholder="Entrez une réponse" /></th>
+					<td><input type="radio" name="repCorrect" value="4"/> (Cochez SI bonne réponse)</td>
+				</tr>
+ 				<tr>
+ 					<th><input type="text" id="reponse" name="reponse5" value ="${reponse5}" placeholder="Entrez une réponse" /></th> 					 									
+					<td><input type="radio" name="repCorrect" value="5"/> (Cochez SI bonne réponse)</td>
+				</tr>
 				
-				<input type="text" id="reponse" name="reponse2" value ="${reponse2}" placeholder="Entrez une réponse." />		
-				<input type="radio" name="repCorrect" value="2"/> (Cochez SI bonne réponse)<br>
-				
-				<input type="text" id="reponse" name="reponse3" value ="${reponse3}" placeholder="Entrez une réponse." />		
-				<input type="radio" name="repCorrect" value="3"/> (Cochez SI bonne réponse)<br>
-				
-				<input type="text" id="reponse" name="reponse4" value ="${reponse4}" placeholder="Entrez une réponse." />		
-				<input type="radio" name="repCorrect" value="4"/> (Cochez SI bonne réponse)<br>
-				
-				<input type="text" id="reponse" name="reponse5" value ="${reponse5}" placeholder="Entrez une réponse." />		
-				<input type="radio" name="repCorrect" value="5"/> (Cochez SI bonne réponse)
+			</table>
 <!--				
 				<input type="text" name="idQuizz" value="<%=request.getAttribute("idQuizz") %>"/><br>
  -->
-				<br> <input type="submit" name="Inserer" value="valider">
+<!-- 				<br> <input type="submit" name="Inserer" value="valider"> -->
 	<br><br>
 	<div><h2> ${! empty erreur? erreur : ''}</h2></div>
 	<br><br><br>

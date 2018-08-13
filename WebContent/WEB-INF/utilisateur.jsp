@@ -15,8 +15,8 @@
 	<div class="img"></div>
 		<div class="container">
 		<!-- <div align="center">${!empty nbErreur? nbErreur:'' }</div> -->
-		<div class="form-div">
-			<h1>Inscription</h1>
+		<div class="div-form-inscription">
+			<h1 class="h1-inscription">Inscription</h1>
 	   		<form action="utilisateur" method="post">
 		      	<input type = "text" id="nom" name="nom" value="${nom}" placeholder="Nom" /><br>
 		      	<br><input type="text" id="prenom" name="prenom"value="${prenom}" placeholder="Prénom"/><br>
@@ -38,7 +38,7 @@
         		 <input type="reset" value="Annulez" />
         		 
         		<div class="dejaInscrit">
-					<br><a href="/siteprojet/accueil" class="dejaInscrit">Déjà iscrit ? Se connecter </a>
+					<br><a href="/siteprojet/accueil" class="dejaInscrit">Déjà inscrit ? Se connecter </a>
 				</div>
 	   		</form>
 		 </div>
@@ -46,7 +46,9 @@
 		</div>
 		</div>
   <!--/// FOOTER ///-->
-<%--  <%@include file="footer.jsp" %>	 --%>
+<footer>
+<%@include file="footer.jsp" %>
+</footer>
 
 </body>
 </html>
