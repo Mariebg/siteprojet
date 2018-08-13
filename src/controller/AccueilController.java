@@ -50,7 +50,7 @@ public class AccueilController extends HttpServlet {
 			erreur="login ou mot de passe incorrects ou compte inconnu";
 			request.setAttribute("erreur",erreur);
 			request.getRequestDispatcher("WEB-INF/accueil.jsp").forward(request, response);
-			}	
+			}
 		}
 	}
 

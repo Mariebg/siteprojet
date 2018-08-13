@@ -44,7 +44,8 @@
 			session.setAttribute("listeStgAttentes",usersAttente);
 			
 			System.out.println("taille" + usersAttente.size());
-			for (int i = 0; i < usersAttente.size(); i++) {
+			
+			for (int i = 0;usersAttente!=null && i< usersAttente.size(); i++) {
 			%>
 			<tr>
 				<td><%out.println(usersAttente.get(i).getNom());%></td>
@@ -83,11 +84,11 @@
 				userValides = (ArrayList<Utilisateur>) request.getAttribute("listeStgValides");	
 				
 				System.out.println("taille" + userValides.size());
-				for (int i = 0; i < userValides.size(); i++) {
+				for (int i = 0; userValides!=null && i < userValides.size(); i++) {
 			%>
 				<tr>
 					<td><%out.println(userValides.get(i).getNom());%></td>
-					<td><%out.println(usersAttente.get(i).getPrenom());%></td>
+					<td><%out.println(userValides.get(i).getPrenom());%></td>
 					<td align="center"><%out.println(userValides.get(i).getTel());%></td>
 					<td><% out.println(userValides.get(i).getMail());%></td>
 					<td><%out.println(userValides.get(i).getSte());%></td>
