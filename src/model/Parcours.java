@@ -4,63 +4,58 @@ import java.util.ArrayList;
 
 public class Parcours {
 	private int idParcours;
-	private int score;
 	private int idUser;
 	private int idQuizz;
+	private String score;
+	private String intituleQuizz;
 
 	
-	public Parcours(int idParcours, int score, int idUser, int idQuizz) {
+	public Parcours(int idParcours, String score, int idUser, int idQuizz) {
 		this.idParcours=idParcours;
 		this.score=score;
 		this.idUser=idUser;
 		this.idQuizz=idQuizz;	
 	}
 	
+	public Parcours(int idParcours, int idUser, int idQuizz, String score, String intituleQuizz) {
+		this.idParcours=idParcours;
+		this.idUser=idUser;
+		this.idQuizz=idQuizz;	
+		this.score=score;
+		this.intituleQuizz=intituleQuizz;	
+	}
 	
 	public Parcours() {
-		
 	}
-
 
 	public int getIdParcours() {
-		return idParcours;
-	}
-
-
+		return idParcours;	}
 	public void setIdParcours(int idParcours) {
-		this.idParcours = idParcours;
-	}
+		this.idParcours = idParcours;	}
 
 
-	public int getScore() {
-		return score;
-	}
-
-
-	public void setScore(int score) {
-		this.score = score;
-	}
+	public String getScore() {
+		return score;}
+	public void setScore(String score) {
+		this.score = score;}
 
 
 	public int getIdUser() {
-		return idUser;
-	}
-
-
+		return idUser;}
 	public void setIdUser(int idUser) {
-		this.idUser = idUser;
-	}
+		this.idUser = idUser;}
 
 
 	public int getIdQuizz() {
-		return idQuizz;
-	}
-
-
+		return idQuizz;}
 	public void setIdQuizz(int idQuizz) {
-		this.idQuizz = idQuizz;
-	}
+		this.idQuizz = idQuizz;}
 
+
+	public String getIntituleQuizz() {
+		return intituleQuizz;}
+	public void setIntituleQuizz(String intituleQuizz) {
+		this.intituleQuizz = intituleQuizz;}
 
 	@Override
 	public int hashCode() {
@@ -69,10 +64,10 @@ public class Parcours {
 		result = prime * result + idParcours;
 		result = prime * result + idQuizz;
 		result = prime * result + idUser;
-		result = prime * result + score;
+		result = prime * result + ((intituleQuizz == null) ? 0 : intituleQuizz.hashCode());
+		result = prime * result + ((score == null) ? 0 : score.hashCode());
 		return result;
 	}
-
 
 	@Override
 	public boolean equals(Object obj) {
@@ -89,13 +84,18 @@ public class Parcours {
 			return false;
 		if (idUser != other.idUser)
 			return false;
-		if (score != other.score)
+		if (intituleQuizz == null) {
+			if (other.intituleQuizz != null)
+				return false;
+		} else if (!intituleQuizz.equals(other.intituleQuizz))
+			return false;
+		if (score == null) {
+			if (other.score != null)
+				return false;
+		} else if (!score.equals(other.score))
 			return false;
 		return true;
 	}
-
-	
-	
 
 
 }

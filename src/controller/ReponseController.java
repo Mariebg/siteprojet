@@ -50,7 +50,10 @@ public class ReponseController extends HttpServlet{
 				{score = score+1;
 			};
 		}
-		boolean parcours=db.insererParcours(idUser,idQuizz,score); 
+		String scoreFinal=score+"/"+nbQuestion;
+		
+		System.out.println("score final : "+scoreFinal);
+		boolean parcours=db.insererParcours(idUser,idQuizz,scoreFinal); 
 		if(parcours) { System.out.println("parcours ajoute");}
 		System.out.println("affichage du score "+score);
 		String phraseResultat= "Vous avez eu "+score+" bonne(s) reponse(s) sur "+nbQuestion+" question(s) posee(s)";

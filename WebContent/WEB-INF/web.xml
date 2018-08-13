@@ -55,15 +55,6 @@
 	</servlet-mapping>
 	
 	<servlet>
-		<servlet-name>ActionPossibleController</servlet-name>
-		<servlet-class>controller.ActionPossibleController</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>ActionPossibleController</servlet-name>
-		<url-pattern>/actionPossible</url-pattern>
-	</servlet-mapping>
-
-	<servlet>
 		<servlet-name>QuestionController</servlet-name>
 		<servlet-class>controller.QuestionController</servlet-class>
 	</servlet>
@@ -100,5 +91,13 @@
 	</servlet-mapping>
 
 
+	<servlet>
+		<servlet-name>ActionPossibleController</servlet-name>
+		<servlet-class>controller.ActionPossibleController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ActionPossibleController</servlet-name>
+		<url-pattern>/actionPossible</url-pattern>
+	</servlet-mapping>
 
 </web-app>

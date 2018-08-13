@@ -1,10 +1,44 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    
+<%@page import="bdd.DbManager"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="model.Parcours"%>
+    
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>ActionPossible</title>
+
+<script type="text/javascript">
+
+function afficheParcours(){
+	<%
+//	HttpSession session = request.getSession();
+	boolean passage=false;
+	int idUser=(int) session.getAttribute("idUser"); //recuperer par la session creee
+	DbManager db=new DbManager();
+	
+
+	ArrayList<Parcours> listeParcours = (ArrayList<Parcours>) db.listerParcours(idUser); //cree un nouveau tableau avec les parcours d'un utilisateur
+	pageContext.setAttribute("listeParcours", listeParcours);
+	//session.setAttribute("listeQuizz", listeQuizz);
+	System.out.println("taille" + listeParcours.size());
+	%>
+	<table>
+		<c:forEach items="${listeParcours}" var="parcours">
+		<tr>
+			<td><c:out value="${parcours.intituleQuizz}"></c:out></td>
+			<td>     Score  <c:out value="${parcours.score}"></c:out></td>
+		</tr>
+		</c:forEach>
+	</table>	
+}	
+function affichemsg(){
+"je fais l'action demandee";
+}	
+</script>
 </head>
 <body>
 <style>
@@ -19,15 +53,6 @@
     border-radius: 8px;
     border: none;
     box-shadow: 1px 5px 10px 0px #696767;
-}
-
-.fieldset-login {
-	height: 319px;
-    border-radius: 10px;
-    width: 23%;
-    margin: auto;
-    box-shadow: 0px 6px 16px 0px #888383;
-    border: none;
 }
 
 
@@ -60,16 +85,21 @@
 
 	<%@include file="menu.jsp" %>
 	
-	<br><br><br><br><br><br><br><br><br><br>  
-	
-      <br><a class="btn-login" href="/siteprojet/resultatParcours" class="href-login">Resultat des parcours</a>
 	<br><br><br><br><br>
+	
+    <br><a class="btn-login" href="#" onclick='affichemsg()' class="href-login">Resultat des parcours</a>
+<!-- 
+    <br><input type="button" class="btn-login"  onclick='afficheParcours();' class="href-login"/>Resultat des parcours
+    <br><a class="btn-login" href="/siteprojet/resultatParcours" class="href-login">Resultat des parcours</a>
+ -->
+	<br><br><br><br><br>
+	
       <br><a class="btn-login" href="/siteprojet/parcours" class="href-login">Nouveau Parcours</a>
 	<br><br><br><br><br><br>
 	<!-- footer -->	
 	<%@include file="footer.jsp" %>	
+	
 
-
-
+	
 </body>
 </html> 

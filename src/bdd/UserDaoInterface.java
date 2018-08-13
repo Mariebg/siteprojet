@@ -3,6 +3,7 @@ package bdd;
 import java.util.ArrayList;
 
 import model.Competence;
+import model.Parcours;
 import model.Question;
 import model.Quizz;
 import model.Reponse;
@@ -53,7 +54,8 @@ public interface UserDaoInterface {
 	public int 	verifierReponse(int idQuizz,int idQuest, int idRepDonne);
 	
 	//--------------inserer un nouveau parcours --------------------------------------
-	public boolean insererParcours(int idUser,int idQuizz,int score);
+	public boolean insererParcours(int idUser,int idQuizz,String score);
 
+	public ArrayList<Parcours> listerParcours(int idUser);
 
 }
