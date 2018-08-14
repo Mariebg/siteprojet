@@ -18,13 +18,13 @@
 		<div class="div-form-inscription">
 			<h1 class="h1-inscription">Inscription</h1>
 	   		<form action="utilisateur" method="post">
-		      	<input type = "text" id="nom" name="nom" value="${nom}" placeholder="Nom" /><br>
-		      	<br><input type="text" id="prenom" name="prenom"value="${prenom}" placeholder="Prénom"/><br>
-		      	<br><input type="text" id="mail" name="mail"value="${mail}" placeholder="E-mail"/><br>
-		     	<br><input type="password" id="psw" name="psw"value="${psw}" placeholder="Mot de passe"/><br>	 
-		      	<br><input type="text" id="tel" name="tel"value="${tel}" placeholder="Téléphone"/><br>	
-		      	<br><input type="text" id="ste" name="ste"value="${ste}" placeholder="Société"/><br>	
-		      	<br><input type="text" id="date" name="dateCreation" value="${dateCreation}" placeholder="Date de création"/>  <br>		
+		      	<input type = "text" id="nom" name="nom" value="${nom}" placeholder="Nom" required/><br>
+		      	<br><input type="text" id="prenom" name="prenom"value="${prenom}" placeholder="Prénom" required/><br>
+		      	<br><input type="text" id="mail" name="mail"value="${mail}" placeholder="E-mail" required/><br>
+		     	<br><input type="password" id="psw" name="psw"value="${psw}" placeholder="Mot de passe" required/><br>	 
+		      	<br><input type="text" id="tel" name="tel"value="${tel}" placeholder="Téléphone" required/><br>	
+		      	<br><input type="text" id="ste" name="ste"value="${ste}" placeholder="Société" required/><br>	
+		      	<br><input type="text" id="date" name="dateCreation" value="${dateCreation}" placeholder="Date de création" required/><br>		
 		      	<br>
 	      	<!--/// AFFICHE LES ERREURS SUR L'UN DES CHAMPS ///-->
 	      	<!-- /// PASSE DANS LE CONTROLEUR ///-->
@@ -45,10 +45,6 @@
 
 		</div>
 		</div>
-  <!--/// FOOTER ///-->
-<footer>
-<%@include file="footer.jsp" %>
-</footer>
 
 </body>
 </html>

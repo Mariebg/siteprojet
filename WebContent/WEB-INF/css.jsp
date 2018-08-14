@@ -1,6 +1,7 @@
 <style>
 
 body{
+	margin: 0; 
 	padding: 0;
 }
 
@@ -19,17 +20,14 @@ body{
 
 .img {
 	position: fixed;
-	left: 0;
-	top: 0;
-/*     background-image: url(https://nord-pas-de-calais.afpa.fr/documents/21653/0/Etablissement+-+Visuel+defaut/83a45ee6-0445-4772-a649-002522afcdd4); */
+    left: 0;
+    top: 0;
+    background-image: url(https://www.setaswall.com/wp-content/uploads/2017/06/Blur-Wallpapers-24-2560-x-1600.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     height: 100%;
     width: 100%;
     margin: 0;
-  	-webkit-filter: blur(3px); 
- 	filter: blur(3px);  
- 	z-index: -99999;
  }
  
  .h1-login {
@@ -106,6 +104,9 @@ input[type=submit] {
     font-weight: 700;
 }
 
+
+
+
 input[type=reset] {
     font-family: 'Montserrat', Arial, Helvetica, sans-serif;
     float: left;
@@ -141,19 +142,19 @@ input[type=reset] {
 }
 
 .div-form-inscription {
-	background-color:rgba(72, 72, 72, 0.54);
-	box-shadow: 0px 0px 13px 4px #606060;
-	padding-left:35px;
-	padding-right:35px;
-	padding-top:35px;
-	padding-bottom:50px;
-	width: 450px;
-	float: left;
-	left: 50%;
-	position: absolute;
- 	margin-top:30px;
-	margin-left: -260px;
-  	border-radius: 7px;
+	background-color: rgba(72, 72, 72, 0.54);
+    box-shadow: 0px 0px 20px 4px #211f1f;
+    padding-left: 35px;
+    padding-right: 35px;
+    padding-top: 35px;
+    padding-bottom: 50px;
+    width: 450px;
+    float: left;
+    left: 50%;
+    position: absolute;
+    margin-top: 77px;
+    margin-left: -260px;
+    border-radius: 7px;
   
 }
 
@@ -187,15 +188,23 @@ input[type=reset] {
 
 table.tab-quest {
 	border:none;
+}
+
+th.rep-th{
+    background-color:inherit;
 
 
 }
-
-input[type="text"].rep1 {
- border:none;
-
+input[type=text].rep {
+	height: 30px;
+    width: 200px;
+    font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+    font-size: 17px;
+    border: none;
+    border-bottom: 1px solid grey;
+    margin-left: 20px;
+    margin: 14px;
 }
-
 
 th {
   font-family: 'Montserrat', Arial, Helvetica, sans-serif;
@@ -205,20 +214,30 @@ th {
 
 td {
   font-family: 'Montserrat', Arial, Helvetica, sans-serif;
-
   font-size: 16px;
 
 }
 
+td.rep-td {
+    font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+    font-size: 14px;
+
+}
+
+
 table {
-	border: medium solid #009688;
+	border: thin solid #009688;
 	border-collapse: collapse;
 	margin:auto;
 }
 
 fieldset{
-	border-radius: 10px;
+	margin: auto;
+	border:none;
+	border-top:1px solid black;
+
 }
+
 
 legend{
 	font-family: 'Montserrat', Arial, Helvetica, sans-serif;
@@ -230,7 +249,7 @@ legend{
 input.submit-tab {
     font-family: 'Montserrat', Arial, Helvetica, sans-serif;
     float: right;
-    width: 5.9%;
+    width: 5.5%;
     border: #ccc1c1 solid 3px;
     cursor: pointer;
     background-color: #75a787;
@@ -243,23 +262,82 @@ input.submit-tab {
 	margin-top: 0px;
 
 }
+
+input[type=submit].submit-modifier-compet {
+	color:white;
+	background-color:#7e5e2c;
+	border: #ccc1c1 solid 3px;
+	width: 6.4%;
+	padding-top:10px;
+	padding-bottom:10px;
+	margin-top: 13px;
+	font-size: 18px;
+	float:right;
+}
+
+
+input[type=submit].submit-supp-compet {
+	color:white;
+	width: 6.9%;
+	padding-top:10px;
+	padding-bottom:10px;
+	border: #ccc1c1 solid 3px;
+	font-size: 18px;
+	background-color:#bd0303;
+	margin-top: 13px;
+	margin-right: -3px;
+	float:right;
+}
+
+
+input[type=submit].submit-supp-admin {
+	color:white;
+	width: 6.7%;
+	padding-top:10px;
+	padding-bottom:10px;
+	border: #ccc1c1 solid 3px;
+	font-size: 18px;
+	background-color:#bd0303;
+	margin-top: 0px;
+	
+	float:right;
+
+}
+
+input[type=submit].submit-quest{
+	width: 16.8%;
+    border: #ccc1c1 solid 3px;
+    cursor: pointer;
+    background-color: #75a787;
+    color: white;
+    font-size: 21px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-top: 17px;
+    margin-left: 43%;
+}
+
+.div-tab-quest, .div-tab-quizz {
+    margin-top: 1%;
+}
+
+
 input.sub-quizz {
-	font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+    font-family: 'Montserrat', Arial, Helvetica, sans-serif;
     float: right;
-    width: 4.1%;
-    margin-right: 573px;
+    width: 5.1%;
+    margin-right: 13.2%;
     border: #ccc1c1 solid 3px;
     background-color: #75a787;
     color: white;
     font-size: 18px;
     padding-top: 10px;
     padding-bottom: 10px;
-    transition: all 0.3s;
-    margin-top: 0px;
+    margin-top: 13px;
 }
 
 input.sub-compet {
-    font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+	font-family: 'Montserrat', Arial, Helvetica, sans-serif;
     border: #ccc1c1 solid 3px;
     background-color: #75a787;
     color: white;
@@ -268,8 +346,36 @@ input.sub-compet {
     padding-bottom: 5px;
     width: 6%;
     position: absolute;
-    right: 34%;
-    top: 25.9%;
+    right: 36%;
+    top: 26.3%;
+    height: 40px;
+}
+
+input.sub-parcours-sujet {
+	border: #ccc1c1 solid 3px;
+    width: 8%;
+    height: 38px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    font-size: 18px;
+    float: right;
+    position: absolute;
+    bottom: 78%;
+    right: 46.8%;
+}
+
+input.sub-parcours-intituleQuizz {
+    border: #ccc1c1 solid 3px;
+    width: 8%;
+    height: 38px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    font-size: 18px;
+    float: right;
+    position: absolute;
+    bottom: 6%;
+    right: 46.8%;
+
 }
 
 input.intitule{
@@ -279,12 +385,16 @@ input.intitule{
 	border-bottom: 2px solid grey;
 	width:20%;
     margin: 4% 41%;
+    color:#083510;
 }
 
 textarea {
 	margin-left: 42%;
     margin-top: -1%;
     margin-bottom: 4%;
+    font-size:15px;
+    font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+    color:#083510;
 }
 
 ::placeholder {
@@ -293,4 +403,13 @@ textarea {
 
 }
 
+.select-parcours {
+    height: 32px;
+    font-size: 17px;
+    color: #355351;
+    font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+    margin-left: 42%;
+    margin-top: 3%;
+	margin: 4% 43% 5%;
+}
 </style>

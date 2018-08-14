@@ -30,10 +30,5 @@
       		<br><a href="/siteprojet/utilisateur" class="href-login">Nouvelle inscription</a>
 		</form>
 	</div>
-<!--/// FOOTER ///-->	
-<footer>
-	<%@include file="footer.jsp" %>	
-<footer>
-		
 </body>
 </html>

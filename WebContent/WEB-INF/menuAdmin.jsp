@@ -27,23 +27,24 @@
 			<table border="1" cellpadding="10" cellspacing="1">
 			<thead>
 				<tr>
-					<th width="20%">Nom</th>
-					<th width="20%">Prénom</th>
+					<th width="25%">Nom</th>
+					<th width="25%">Prénom</th>
 					<th width="5%">Téléphone</th>
 					<th width="20%">Mail</th>
 					<th width="20%">Société</th>
-					<th width="5%">Date d'inscription</th>
+					<th width="10%">Date d'inscription</th>
 					<th width="5%">Validation</th>
 				</tr>
 			</thead>	
 		<form action="menuAdmin" methode= "get"> 
 			<% 
-			ArrayList<Utilisateur> usersAttente;
-			usersAttente = (ArrayList<Utilisateur>) request.getAttribute("listeStgAttentes"); //cree un nouveau tableau usersAttente avec le contenu du tableau listeStgAttentes charge dans accueilControler
-			session.setAttribute("listeStgAttentes",usersAttente);
-			
-			System.out.println("taille" + usersAttente.size());
-			for (int i = 0; i < usersAttente.size(); i++) {
+				ArrayList<Utilisateur> usersAttente;
+				 //cree un nouveau tableau usersAttente avec le contenu du tableau listeStgAttentes charge dans accueilControler
+				usersAttente = (ArrayList<Utilisateur>) request.getAttribute("listeStgAttentes");
+				session.setAttribute("listeStgAttentes",usersAttente);
+				
+				System.out.println("taille" + usersAttente.size());
+				for (int i = 0; i < usersAttente.size(); i++) {
 			%>
 			<tr>
 				<td><%out.println(usersAttente.get(i).getNom());%></td>
@@ -51,16 +52,16 @@
 				<td align="center"><%out.println(usersAttente.get(i).getTel());%></td>
 				<td><% out.println(usersAttente.get(i).getMail());%></td>
 				<td><%out.println(usersAttente.get(i).getSte());%></td>
-				<td align="center"><%out.println(usersAttente.get(i).getDateCreation());%></td>				
+				<td align="center"><%out.println(usersAttente.get(i).getDateCreation());%></td>	
+							
 				<td align="center"><input type="checkbox" name="<%= usersAttente.get(i).getId()%>" ></td> <!--on donne la valeur de l'id à name  --> 
 			</tr>
 			<% } %>
 			</table>
 			
 			<input class="submit-tab" type="submit" name="valider" value="valider">
-		</form>
-		
-		</fieldset>
+		</form>	
+	</fieldset>
 		<!-- ////////// TABLEAU USERS VALIDÉS /////////// -->
 		<fieldset class="fieldset-tab">
 			<legend class="legend-tab">
@@ -68,13 +69,16 @@
 			</legend>
 			<table border="1" cellpadding="10" cellspacing="1">
 				<tr>
-					<th width="20%">Nom</th>
-					<th width="20%">Prénom</th>
+					<th width="25%">Nom</th>
+					<th width="25%">Prénom</th>
 					<th width="5%">Téléphone</th>
 					<th width="20%">Mail</th>
 					<th width="20%">Société</th>
-					<th width="5%">Date d'inscription</th>
+					<th width="10%">Date d'inscription</th>
+					<th width="5%">Suppression</th>
 				</tr>
+				
+				<form action="menuAdmin" methode= "get"> 
 
 			<% 
 //				ArrayList<Utilisateur> users=UserBDD.listeAttenteStagiaire(false);
@@ -91,13 +95,14 @@
 					<td><% out.println(userValides.get(i).getMail());%></td>
 					<td><%out.println(userValides.get(i).getSte());%></td>
 					<td align="center"><%out.println(userValides.get(i).getDateCreation());%></td>
+					
+					<td align="center"><input class="checkbox" type="checkbox" name="<%= usersAttente.get(i).getId()%>" ></td>
 				</tr>
 				<% } %>
 			</table>
+			
+			<input class="submit-supp-admin" type="submit" name="supprimer" value="supprimer">
+			</form>
 		</fieldset>
-		
-<footer>
-	<%@include file="footer.jsp"%>
-</footer>
 </body>
 </html>

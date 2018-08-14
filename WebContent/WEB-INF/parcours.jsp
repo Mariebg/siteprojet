@@ -9,16 +9,19 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<%@include file="menu.jsp"%>
+
+<%@include file="css.jsp" %>
+
 
 <title>Parcours</title>
 </head>
-<body>
+<body style="margin: 0; padding: 0;">
+<%@include file="menuAd.jsp"%>
 	<!-- ////////// TABLEAU USERS EN ATTENTE /////////// -->
-	<fieldset>
-		<legend>
-			<h2>Liste des sujets.</h2>
-		</legend>
+<!-- 	<fieldset> -->
+<!-- 		<legend> -->
+<!-- 			<h2>Liste des sujets</h2> -->
+<!-- 		</legend> -->
 		<%
 		    int idUser;
 			if (session.getAttribute("id")!=null){
@@ -34,8 +37,9 @@
 		%>
 		<FORM action="parcours" method="get">
 
-			<SELECT name="choix" size="1" width="60">
-				<option value="-"></option>
+			<SELECT class="select-parcours" name="choix" size="1" width="60">
+				
+				<option value="-">--CHOISISSEZ UN SUJET--</option>
 				<%
 					for (int i = 0; i < listeCompetences.size(); i++) {
 				%>
@@ -45,9 +49,9 @@
 				</OPTION>
 				<%}%>
 
-			</SELECT> <input type="submit" name="valider" value="valider">
+			</SELECT> <input class="sub-parcours-sujet" type="submit" name="valider" value="valider">
 		</FORM>
-	</fieldset>
+<!-- 	</fieldset> -->
 
 
 
@@ -62,12 +66,12 @@
 	if (request.getAttribute("idCompet") != null) {%>
 	<fieldset>
 		<legend>
-			<h2>Listes des questionnaires.</h2>
+			<h2>Listes des questionnaires</h2>
 		</legend>
 		<table border="1" cellpadding="10" cellspacing="1">
 			<tr>
-				<th width="5%">Intitulé</th>
-				<th width="1%">Choix</th>
+				<th width="15%">Intitulé</th>
+				<th width="12%">Choix</th>
 			</tr>
 		<form action="parcours" method="post">
 			<%Integer idCompet = (Integer)request.getAttribute("idCompet");
@@ -80,13 +84,13 @@
 	}%>
 				<c:forEach items="${listeQuizz}" var="quizz">
 					<tr>
-						<td><c:out value="${quizz.intitulQuizz}"></c:out></td>
+						<td width="15%"><c:out value="${quizz.intitulQuizz}"></c:out></td>
 						<!--on donne la valeur de l'id à name  -->
-						<td align="center"><input type="radio" name="choix" value="${quizz.idQuizz}">
+						<td width="12%" align="center"><input type="radio" name="choix" value="${quizz.idQuizz}">
 						<input type="hidden" name="intitulQuizz" value="${quizz.intitulQuizz}"></td>
 					</tr>
 				</c:forEach>
-				<input type="submit" name="valider" value="valider">
+				<input class="sub-parcours-intituleQuizz" type="submit" name="valider" value="valider">
 		</table>
 	</fieldset>
 			</form>
