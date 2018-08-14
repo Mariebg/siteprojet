@@ -13,9 +13,9 @@
 	<%@include file="menuAd.jsp"%>
 	
 		<form action="competence" method="post">  
-			<input class="intitule" type="text" id="sujet" name="sujet"  placeholder="Entrez un sujet de compétence"/>
+			<input class="intitule" type="text" id="sujet" name="sujet"  placeholder="Entrez un sujet de compétence" required/>
 			<!--/// CHAMP TEXTAREA POUR DESCRIPTION ///-->
-			<textarea cols="34" input id="desription" name="description" placeholder="Description"></textarea>
+			<textarea cols="34" input id="desription" name="description" placeholder="Description" required></textarea>
 			<br>
 			<input class="sub-compet" type="submit" name="Inserer" value="valider">
 		</form>
