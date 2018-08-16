@@ -14,6 +14,9 @@
 	
 	</div>
 		<div class="div-form-login">
+		<br>
+		<br>
+		<br>
 		<h1 class="h1-login">Connexion</h1>
 		<form action="accueil" method="post"><br>	
 		 	<input type = "text" class="input-login" id="login" name="login" value="${login}" placeholder="E-mail" required/><br>		 

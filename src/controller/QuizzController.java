@@ -23,7 +23,9 @@ public class QuizzController extends HttpServlet  {
 		//Chargement de la liste des competences
 		DbManager db=new DbManager();
 		ArrayList<Competence> listeCompetences=db.listerCompetence();
-		request.setAttribute("listeCompetences", listeCompetences);
+//		request.setAttribute("listeCompetences", listeCompetences);
+		HttpSession session = request.getSession();
+		session.setAttribute("listeCompetences", listeCompetences);
 		request.getRequestDispatcher("WEB-INF/quizz.jsp").forward(request, response);
 	}
 
@@ -40,28 +42,25 @@ public class QuizzController extends HttpServlet  {
 		System.out.println("choix de la competence dans question "+ request.getParameter("choix"));
 
 		if (!competences.isEmpty()) {
-			idCompet = Integer.parseInt(request.getParameter("choix")); 
 
 			int idQuizz=-1;
 			if(request.getParameter("choix") != null) {
+				idCompet = Integer.parseInt(request.getParameter("choix")); 
 				System.out.println("id recuperer "+idCompet);
-				// nom de la variable du name dans accueil.jsp
+				
+				// nom de la variable du name dans quizz.jsp
 				String intitulQuizz = request.getParameter("intitulQuizz");
-				//recuperation id du quizz inserer
-				idQuizz=db.insererQuizz(idCompet,intitulQuizz); 
-			}
-			
-//			//stocke la variable idQuizz pour la session - solution 1
-			HttpSession session = request.getSession();
-			session.setAttribute("idQuizz", idQuizz);
-			
-			//stocke la variable pour la passer en parametre - solution 2
-//			request.setAttribute("idQuizz", idQuizz);
-			
-			request.getRequestDispatcher("WEB-INF/question.jsp").forward(request, response);
+				//stocke les variables dans la session
+				HttpSession session = request.getSession();
+				session.setAttribute("idCompet", idCompet);
+				session.setAttribute("intitulQuizz", intitulQuizz);
+				request.getRequestDispatcher("WEB-INF/question.jsp").forward(request, response);
+				}
+			 else {
+				request.getRequestDispatcher("WEB-INF/quizz.jsp").forward(request, response);
+			 }		
 		} else {
-//			System.out.println("passage ici");
-			request.getRequestDispatcher("WEB-INF/question.jsp").forward(request, response);
+			request.getRequestDispatcher("WEB-INF/quizz.jsp").forward(request, response);
 		}		
 	}
 }

@@ -36,7 +36,7 @@ public class AccueilController extends HttpServlet {
 		
  		if (u!=null ) {
  			request.getSession().setAttribute("idUser",u.getId());
- 			request.getSession().setAttribute("role",u.isRole());
+ 			request.getSession().setAttribute("idRole",u.isRole());
  			request.getSession().setAttribute("nomUser",u.getNom());
  			request.getSession().setAttribute("prenomUser",u.getPrenom());
 			if (u.isRole()==true) {

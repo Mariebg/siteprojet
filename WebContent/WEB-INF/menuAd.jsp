@@ -37,6 +37,7 @@
 		<li><a href="/siteprojet/menuAdmin">Gestion utilisateurs</a></li>
 		<!-- 	<li><a href="/siteprojet/parcours">Parcours</a></li> -->
 		<li><a href="/siteprojet/quizz">Créer un quizz</a></li>
+		<li><a href="/siteprojet/modifQuizz">Modifier un quizz</a></li>
 		<li><a href="/siteprojet/competence">Ajouter une compétence</a></li>
 	</ul>
 

@@ -9,7 +9,12 @@
 	<%@include file="css.jsp" %>
 	
 <body style="margin: 0; padding: 0;">
-	<%@include file="menuAd.jsp"%>
+<% boolean idRole=(boolean) session.getAttribute("idRole");
+	if(!idRole) { %>
+		<%@include file="menuStg.jsp" %>
+	<% }else{ %>
+		<%@include file="menuAd.jsp"%>
+	<% } %>
 	<!--///// CREATION D'UNE QUESTION -->
 	<form action="question" method="post">
 		<input class="intitule" id="question" name= question value ="${question}" placeholder="       Entrez votre question" required>

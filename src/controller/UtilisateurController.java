@@ -44,7 +44,7 @@ public class UtilisateurController extends HttpServlet {
 				String dateCreation=request.getParameter("dateCreation");
 				
 				userInsert.setNom(nom);
-				userInsert.setNom(prenom);
+				userInsert.setPrenom(prenom);
 				userInsert.setMail(mail);
 				userInsert.setDateCreation(dateCreation);
 				userInsert.setTel(tel);
@@ -58,7 +58,7 @@ public class UtilisateurController extends HttpServlet {
 
 		
 			request.setAttribute("erreur",erreur);
-			request.getRequestDispatcher("WEB-INF/utilisateur.jsp").forward(request, response);
+			request.getRequestDispatcher("WEB-INF/accueil.jsp").forward(request, response);
 			
 		
 	

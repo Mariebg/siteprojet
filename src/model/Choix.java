@@ -17,58 +17,37 @@ public class Choix {
 	
 	
 	public Choix() {
-		
 	}
 
 
 	public int getIdChoix() {
-		return idChoix;
-	}
-
-
+		return idChoix;}
 	public void setIdChoix(int idChoix) {
-		this.idChoix = idChoix;
-	}
+		this.idChoix = idChoix;}
 
 
 	public int getIdQuest() {
-		return idQuest;
-	}
-
-
+		return idQuest;}
 	public void setIdQuest(int idQuest) {
-		this.idQuest = idQuest;
-	}
+		this.idQuest = idQuest;}
 
 
 	public int getIdRepDonne() {
-		return idRepDonne;
-	}
-
-
+		return idRepDonne;}
 	public void setIdRepDonne(int idRepDonne) {
-		this.idRepDonne = idRepDonne;
-	}
+		this.idRepDonne = idRepDonne;}
 
 
 	public int getIdParcours() {
-		return idParcours;
-	}
-
-
+		return idParcours;}
 	public void setIdParcours(int idParcours) {
-		this.idParcours = idParcours;
-	}
+		this.idParcours = idParcours;}
 
 
 	public int getIdQuizz() {
-		return idQuizz;
-	}
-
-
+		return idQuizz;}
 	public void setIdQuizz(int idQuizz) {
-		this.idQuizz = idQuizz;
-	}
+		this.idQuizz = idQuizz;}
 
 
 	@Override

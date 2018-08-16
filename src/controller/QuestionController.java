@@ -18,10 +18,10 @@ public class QuestionController extends HttpServlet{
 //		DbManager db= new DbManager();
 		
 		HttpSession session = request.getSession();
-		int idQuizz = (int) session.getAttribute("idQuizz");
-//		
-//		System.out.println("id quizz recupere de la page quizz : "+idQuizz);
-//
+//		int idQuizz = (int) session.getAttribute("idQuizz");
+		
+		int idCompet=(int) session.getAttribute("idCompet");
+		String intitulQuizz=(String) session.getAttribute("intitulQuizz");
 
 		request.getRequestDispatcher("WEB-INF/question.jsp").forward(request, response);
 	}
@@ -31,11 +31,15 @@ public class QuestionController extends HttpServlet{
 		DbManager db= new DbManager();
 		
 		HttpSession session = request.getSession();
-		int idQuizz=(int) session.getAttribute("idQuizz"); //recuperer par la session creee
+//		int idQuizz=(int) session.getAttribute("idQuizz"); //recuperer par la session creee
 //		int idQuizz=Integer.parseInt(request.getParameter("idQuizz")); //passer comme valeur ds la jsp
-		System.out.println("idQuizz "+idQuizz);
 		
-		String question = request.getParameter("question");// nom de la variable du name dans accueil.jsp
+		int idCompet=(int) session.getAttribute("idCompet");
+		String intitulQuizz=(String) session.getAttribute("intitulQuizz");
+
+//		System.out.println("idQuizz "+idQuizz);
+		
+		String question = request.getParameter("question");// nom de la variable du name dans la jsp
 		
 		System.out.println("passage dans le post de question");
 
@@ -70,6 +74,9 @@ public class QuestionController extends HttpServlet{
 				System.out.println("Nb de reponse ds la liste reponse : "+reponse.size());
 				
 				if (!reponse.isEmpty() && repOk!=-1 && reponse.size()>1) {
+					//recuperation id du quizz inserer
+					int idQuizz=db.insererQuizz(idCompet,intitulQuizz); 
+
 					int idQuest = db.insertQuestion(question,idQuizz);
 					if (idQuest!=-1) {
 						int idRepOk = db.insertReponse(reponse,idQuest,repOk); //insere les reponses ds la table et renvoie l'id de la reponse correcte

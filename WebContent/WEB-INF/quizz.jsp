@@ -10,7 +10,12 @@
 </head>
 <%@include file="css.jsp"%>
 <body>
-	<%@include file="menuAd.jsp"%>
+<% boolean idRole=(boolean) session.getAttribute("idRole");
+	if(!idRole) { %>
+		<%@include file="menuStg.jsp" %>
+	<% }else{ %>
+		<%@include file="menuAd.jsp"%>
+	<% } %>
 		<!--///// CREATION DU TITRE POUR LE QUIZZ /////-->
 	<form action="quizz" method="post">	
 		<input class="intitule" type="text" name="intitulQuizz" placeholder="Entrez un titre pour le quizz" required/>	
@@ -28,7 +33,8 @@
 				</tr>
 			<% 
 				ArrayList<Competence> lstCompetences;
-				lstCompetences = (ArrayList<Competence>) request.getAttribute("listeCompetences"); //cree un nouveau tableau usersAttente avec le contenu du tableau listeStgAttentes charge dans accueilControler
+				lstCompetences = (ArrayList<Competence>) session.getAttribute("listeCompetences"); //cree un nouveau tableau usersAttente avec le contenu du tableau listeStgAttentes charge dans accueilControler
+			if (lstCompetences!= null){
 				session.setAttribute("listeCompetences",lstCompetences);						
 //				System.out.println("taille" + lstCompetences.size());
 				for (int i = 0; i < lstCompetences.size(); i++) {
@@ -42,7 +48,8 @@
 					<input type="radio" name="choix" value=<%= lstCompetences.get(i).getIdCompet()%> >
 				</td>
 			</tr>
-			<% } %>
+			<% }
+				} %>
 		</table>
 		<input class="sub-quizz" type="submit" name="valider" value="valider">
 	</div>	

@@ -3,6 +3,7 @@
 <%@page import="model.Question"%>
 <%@page import="model.Reponse"%>
 
+
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -11,7 +12,12 @@
 <title>questionnaire à remplir</title>
 </head>
 <body>
-<%@include file="menu.jsp"%> 
+<% boolean idRole=(boolean) session.getAttribute("idRole");
+	if(!idRole) { %>
+		<%@include file="menuStg.jsp" %>
+	<% }else{ %>
+		<%@include file="menuAd.jsp"%>
+	<% } %>
 
 		<!-- ////////// LISTE DES QUESTIONS REPONSES /////////// -->
 	<%
@@ -44,8 +50,7 @@
 			<c:set var="numChoix" value="${0}"/>
 			<c:set var="numQuestion" value="${0}"/>
 			
-			<c:forEach items="${listeQuestion}" var="question">
-			
+			<c:forEach items="${listeQuestion}" var="question">			
 			 	<c:set var="numQuestion" value="${numQuestion+1}"/>
 				<input type="hidden" name="question${numQuestion}" value= "${question.getIdQuest()}">
 				
@@ -73,19 +78,6 @@
 	<br>
 	</fieldset>
 
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 
 </body>
 </html>

@@ -9,16 +9,18 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<%@include file="menu.jsp"%>
+<%@include file="css.jsp"%>
 
 <title>Parcours</title>
 </head>
-<body>
+<body style="margin: 0; padding: 0;">
+	<% boolean idRole=(boolean) session.getAttribute("idRole");
+	if(!idRole) { %>
+		<%@include file="menuStg.jsp" %>
+	<% }else{ %>
+		<%@include file="menuAd.jsp"%>
+	<% } %>
 	<!-- ////////// liste de competences /////////// -->
-	<fieldset>
-		<legend>
-			<h2>Liste des competences</h2>
-		</legend>
 		<%
 		    int idUser;
 			if (session.getAttribute("id")!=null){
@@ -33,20 +35,17 @@
 			System.out.println("Nb de competences : " + listeCompetences.size());
 		%>
 		<FORM action="parcours" method="get">
-			<SELECT name="choix" size="1" width="60">
-				<option value="-"></option>
+			<select class="select-parcours" name="choix" size="1" width="60">
+				<option value="-">--CHOISISSEZ UN SUJET--</option>
 					<%for (int i = 0; i < listeCompetences.size(); i++) {%>
-				<OPTION	value=<%out.println(listeCompetences.get(i).getIdCompet());%>>
-					<%out.println(listeCompetences.get(i).getSujet());%>
-				</OPTION>
-					<%}%>
-			</SELECT> <input type="submit" name="valider" value="valider">
+				<option	value=<%out.println(listeCompetences.get(i).getIdCompet());%>>
+					<%out.println(listeCompetences.get(i).getSujet());%></option><%}%>
+			<input class="sub-parcours-sujet"  type="submit" name="valider" value="valider">
+			</select> 
 		</FORM>
-			<div align="center"> ${! empty erreur? erreur : ''}</div>
 		
-	</fieldset>
-
-			<div align="center"> ${! empty phraseResultat? phraseResultat : ''}</div>
+	<div align="center"><br> ${! empty erreur? erreur : ''}</div>
+	<div align="center"> ${! empty phraseResultat? phraseResultat : ''}</div>
 	<!-- ////////// LISTE DES QUIZZ /////////// -->
 	<%
 	DbManager db = new DbManager();
@@ -60,20 +59,21 @@
 		<legend>
 			<h2>Listes des questionnaires.</h2>
 		</legend>
+		<div class="div-tab-parcours">
 		<table border="1" cellpadding="10" cellspacing="1">
 			<tr>
 				<th width="5%">Intitulé</th> 
 				<th width="1%">Choix</th>
 			</tr>
-		<form action="parcours" method="post">
-			<%Integer idCompet = (Integer)request.getAttribute("idCompet");
-
-			listeQuizz = (ArrayList<Quizz>) db.listerQuizz(idCompet); //cree un nouveau tableau usersAttente avec le contenu du tableau listeStgAttentes charge dans accueilControler
-			
-			pageContext.setAttribute("listeQuizz", listeQuizz);
-			//session.setAttribute("listeQuizz", listeQuizz);
-			System.out.println("taille" + listeQuizz.size());
-	}%>
+			<form action="parcours" method="post">
+				<%Integer idCompet = (Integer)request.getAttribute("idCompet");
+	
+				listeQuizz = (ArrayList<Quizz>) db.listerQuizz(idCompet); //cree un nouveau tableau usersAttente avec le contenu du tableau listeStgAttentes charge dans accueilControler
+				
+				pageContext.setAttribute("listeQuizz", listeQuizz);
+				//session.setAttribute("listeQuizz", listeQuizz);
+				System.out.println("taille" + listeQuizz.size());
+				}%>
 				<c:forEach items="${listeQuizz}" var="quizz">
 					<tr>
 						<td><c:out value="${quizz.intitulQuizz}"></c:out></td>
@@ -81,11 +81,11 @@
 						<td align="center"><input type="radio" name="choix" value="${quizz.idQuizz}">
 						<input type="hidden" name="intitulQuizz" value="${quizz.intitulQuizz}"></td>
 					</tr>
+				<input class="sub-parcours-intituleQuizz" type="submit" name="valider" value="valider">
 				</c:forEach>
-				<input type="submit" name="valider" value="valider">
-		</table>
-	</fieldset>
 			</form>
-
+		</table>
+		</div>
+	</fieldset>
 </body>
 </html>

@@ -5,6 +5,50 @@
 	xmlns:web="http://xmlns.jcp.org/xml/ns/javaee"
 	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
 	version="2.4">
+	
+<!-- debut code securite	 -->
+	<!-- code pour la securite de base du site     ne pas oublier d'aller noter dans le tomcat-users.xml les noms et mdp autorisés	 -->
+	<!-- 	donne le nom au role à tester -->
+	<security-role>
+        <role-name>manager</role-name>
+    </security-role>
+    
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>management pages</web-resource-name>
+	<!-- donne le chemin à suivre - ici tous les chemins possibles -->
+            <url-pattern>/*</url-pattern>
+        </web-resource-collection>
+        <auth-constraint>
+	<!--         role de security-role -->
+            <role-name>manager</role-name>
+        </auth-constraint>
+    </security-constraint>
+	
+<!-- 	1-methode BASIC utilisee pour la connection -->
+<!-- 	 <login-config> -->
+<!--         <auth-method>BASIC</auth-method> -->
+<!--     </login-config> -->
+    
+<!-- 	2-methode avec une mise en page personnalisee utilisee pour la connection -->
+<!-- 	et il faut creer deux formulaires quasi identiques sauf l'action qui change quand on fait submit  et les noms qui commencent par j_...   -->
+<!-- 		<form action="j_security_check" method="post"> -->
+<!-- 			<input type="text" name="j_username"/> -->
+<!-- 			<input type="password" name="j_password"/> -->
+<!-- 			<input type="submit" value="Connexion"/> -->
+<!-- 		</form> -->
+
+    <login-config>
+	  <auth-method>FORM</auth-method>
+	  <form-login-config>
+	    <form-login-page>/WEB-INF/login.jsp</form-login-page>
+	    <form-error-page>/WEB-INF/login-fail.jsp</form-error-page>
+	  </form-login-config>
+	</login-config>
+    
+<!--     fin code securite -->
+	
+	
 	<jsp-config>
 		<jsp-property-group>
 			<url-pattern>*.jsp</url-pattern>
@@ -98,6 +142,15 @@
 	<servlet-mapping>
 		<servlet-name>ActionPossibleController</servlet-name>
 		<url-pattern>/actionPossible</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>ModifQuizzController</servlet-name>
+		<servlet-class>controller.ModifQuizzController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ModifQuizzController</servlet-name>
+		<url-pattern>/modifQuizz</url-pattern>
 	</servlet-mapping>
 
 </web-app>

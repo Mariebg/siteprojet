@@ -10,13 +10,18 @@
 	<%@include file="css.jsp" %>
 
 <body>
-	<%@include file="menuAd.jsp"%>
+<% boolean idRole=(boolean) session.getAttribute("idRole");
+	if(!idRole) { %>
+		<%@include file="menuStg.jsp" %>
+	<% }else{ %>
+		<%@include file="menuAd.jsp"%>
+	<% } %>
 	
 <!-- /////////////////////////creation competence /////////////////////////////// -->
 	<form action="competence" method="post">  
-		<input class="intitule" type="text" id="sujet" name="sujet"  placeholder="Entrez la nouvelle competence"/>
+		<input class="intitule" type="text" id="sujet" name="sujet"  placeholder="Entrez la nouvelle competence" required/>
 		<!--/// CHAMP TEXTAREA POUR DESCRIPTION ///-->
-		<textarea cols="34" input id="desription" name="description" placeholder="Description"></textarea>
+		<textarea cols="34" input id="desription" name="description" placeholder="Description" required></textarea>
 		<br>
 		<input class="sub-compet" type="submit" name="Inserer" value="valider">
 	</form>

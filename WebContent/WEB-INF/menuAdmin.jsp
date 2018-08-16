@@ -12,7 +12,12 @@
 	<%@include file="css.jsp" %>
 
 <body>
-	<%@include file="menuAd.jsp"%>
+<% boolean idRole=(boolean) session.getAttribute("idRole");
+	if(!idRole) { %>
+		<%@include file="menuStg.jsp" %>
+	<% }else{ %>
+		<%@include file="menuAd.jsp"%>
+	<% } %>
 
 <!-- 	<h1 class="h1-admin">Gestion utilisateurs</h1> -->
 	<br>
